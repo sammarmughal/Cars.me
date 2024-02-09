@@ -96,9 +96,9 @@ function Nav() {
           </ul>
 
           <div className="mr-20">
-            <a href="/" className="px-3 py-2 rounded-xl text-white bg-gradient-to-b from-red-700 to-orange-400">
+            <Link to="/" className="px-3 py-2 rounded-xl text-white bg-gradient-to-b from-red-700 to-orange-400">
               Sell Your Car
-            </a>
+            </Link>
           </div>
         </section>
       </nav>
@@ -139,12 +139,12 @@ function Nav() {
                     style={{ border: "0px" }}
                   />
                 </div>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-left justify-start underline text-xl font-bold text-blue-800"
                 >
                   Forgotten Password?
-                </a>
+                </Link>
                 <button
                   className="form-control rounded-lg block w-full p-4 my-4 text-white text-xl font-black leading-6 bg-blue-600  transition duration-150 ease-in-out"
                   style={{ border: "0px" }}
@@ -152,11 +152,11 @@ function Nav() {
                   Log In
                 </button>
                 <p
-                  href="/"
+                  to="/"
                   className="text-left justify-start text-lg font-noraml text-blue-800"
                 >
                   You Have An Account yet?{" "}
-                  <a href="/" className="text-xl underline font-bold"> Sign Up Here</a>
+                  <Link to="/" className="text-xl underline font-bold"> Sign Up Here</Link>
                 </p>
               </div>
             </div>
@@ -199,8 +199,8 @@ function Nav() {
                   <hr className="w-1/2 border-t border-gray-400 inline-block" />
                 </div>
                 <div>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="flex gap-8  justify-center form-control rounded-lg block w-full my-3 p-4 text-base font-normal leading-6 text-gray-800  border border-blue-800  transition duration-150 ease-in-out"
                   >
                     <div className="w-4/6 flex justify-between items-center">
@@ -209,9 +209,9 @@ function Nav() {
                         Continue With Google
                       </p>
                     </div>
-                  </a>
-                  <a
-                    href="/"
+                  </Link>
+                  <Link
+                    to="/"
                     className="flex justify-center form-control rounded-lg block w-full my-3 p-4 text-base font-normal leading-6 text-gray-800  border border-blue-800  transition duration-150 ease-in-out"
                   >
                     <div className="w-4/6 flex justify-between">
@@ -220,9 +220,9 @@ function Nav() {
                         Continue With Facebook
                       </p>
                     </div>
-                  </a>
-                  <a
-                    href="/"
+                  </Link>
+                  <Link
+                    to="/"
                     className="flex justify-center form-control rounded-lg block w-full my-3 p-4 text-base font-normal leading-6 text-gray-800  border border-blue-800  transition duration-150 ease-in-out"
                   >
                     <div className="w-4/6 flex justify-between items-center">
@@ -231,10 +231,10 @@ function Nav() {
                         Continue With E-mail
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-left justify-start text-lg font-normal text-blue-800"
                 >
                   You Have An Account yet?{" "}
@@ -242,7 +242,7 @@ function Nav() {
                     {" "}
                     Login Here
                   </span>
-                </a>
+                </Link>
                 <p>
                   By creating an account, you agree to cars.me, Conditions of
                   Use and Privacy Notice.

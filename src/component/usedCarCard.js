@@ -7,6 +7,8 @@ import engine from "../images/HomepageAssets/engine-motor-svgrepo-com.png";
 import gearLiver from "../images/HomepageAssets/GearLiver-1.png";
 import fireSvgrepo from "../images/HomepageAssets/fire-svgrepo-com.png";
 import {FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 const CarCard = () => {
     return (
@@ -16,7 +18,7 @@ const CarCard = () => {
                 <div className="p-4">
                     <div className="flex pb-2 justify-between">
                         <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">Volkswagen ID.5 2023</h1>
-                        <a href="/" className="px-7  py-1 rounded-xl text-red-600 bg-transparent  border-1 border border-blue-500 ">9/10</a>
+                        <Link to="/" className="px-7  py-1 rounded-xl text-red-600 bg-transparent  border-1 border border-blue-500 ">9/10</Link>
                     </div>
                         <p className="text-left mb-3 text-red-600 text-lg"> Dubai</p>
                     <div className="grid grid-cols-3 gap-5">

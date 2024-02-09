@@ -4,6 +4,7 @@ import phone from "../images/HomepageAssets/phone.png";
 import email from "../images/HomepageAssets/email.png";
 import location from "../images/HomepageAssets/location.png";
 import vector from "../images/HomepageAssets/Vector.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -27,30 +28,30 @@ function Footer() {
             Quick Links
           </h2>
           <div className="flex flex-col space-y-1 sm:space-y-1 my-6 text-sm text-left  no-underline sm:text-base">
-            <a href="#">
+            <Link to="#">
               <span className="hover:text-blue-600 hover:underline">Home </span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="hover:text-blue-600 hover-underline">Cars</span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="hover:text-blue-600 hover-underline">
                 New Cars
               </span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="hover:text-blue-600 hover-underline">
                 Used cars
               </span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="hover:text-blue-600 hover-underline">Blog</span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <span className="hover:text-blue-600 hover-underline">
                 How It Works
               </span>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="">
@@ -71,13 +72,13 @@ function Footer() {
               <div className="flex gap-3 items-center my-6">
                 <img src={phone} className="w-7 h-7" />
                 <p className="text-base">
-                  <a href="Phone:+97143331005"> Phone: +971 4 333 1005</a>
+                  <Link  to="#"> Phone: +971 4 333 1005</Link>
                 </p>
               </div>
               <div className="flex gap-3 items-center my-6">
                 <img src={email} className="w-7 h-7" />
                 <p className="text-base">
-                  <a href="Email:info@imperial.me"> Email: info@imperial.me</a>
+                  <Link to="#"> Email: info@imperial.me</Link>
                 </p>
               </div>
             </div>

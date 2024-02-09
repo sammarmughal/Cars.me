@@ -20,6 +20,7 @@ import email from "../images/CarsDetailPageAssets/email.png";
 import car from "../images/HomepageAssets/car.png";
 import whatsapp from "../images/CarsDetailPageAssets/whatsapp-svgrepo-com.png";
 import stars from "../images/CarsDetailPageAssets/stars.png";
+import { Link } from "react-router-dom";
 
 function CarsDetail() {
   return (
@@ -120,9 +121,9 @@ function CarsDetail() {
             </h1>
             <div className="flex items-end justify-end">
               <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center py-1 px-5 shadow-lg shadow-blue-500/50  justify-center text-white rounded-2xl ">
-                <a href="/" className="text-center flex items-center text-xl">
+                <Link to="/" className="text-center flex items-center text-xl">
                   See Full Description...{" "}
-                </a>
+                </Link>
               </div>
             </div>
           </section>
@@ -192,9 +193,9 @@ function CarsDetail() {
             </div>
           </div>
           <div className="bg-gradient-to-b from-blue-700 my-4 to-cyan-500 flex items-center py-3 shadow-lg shadow-blue-500/50  justify-center text-white rounded-xl ">
-            <a href="/" className="text-center flex items-center text-2xl">
+            <Link to="/" className="text-center flex items-center text-2xl">
               Report This Ad{" "}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -208,9 +209,9 @@ function CarsDetail() {
           <CarCard />
         </div>
         <div className="flex justify-center pt-5 my-5">
-          <a  href="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">
+          <Link  to="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">
             View More
-          </a>
+          </Link>
         </div>
       </section>
       <div className="bg-sky-100 my-4">
@@ -221,9 +222,9 @@ function CarsDetail() {
               Sell Your Car In Best Price <br /> At Cars.Me
             </h1>
             <div className="flex pt-5 my-5">
-              <a href="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">
+              <Link to="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">
                 Register Your Cars
-              </a>
+              </Link>
             </div>
           </div>
           <div className="w-1/2 flex justify-end">
