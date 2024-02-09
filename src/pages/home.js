@@ -41,7 +41,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="mb-2 p-4 flex justify-between">
-                        <a className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Shop Now</a>
+                        <a href="/" className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Shop Now</a>
                         <FaRegHeart className="text-blue-700 w-8 h-8" />
                     </div>
                 </div>
@@ -53,7 +53,7 @@ function Home() {
             <>
                 <div className="bg-white hover:shadow-lg border border-slate-400 rounded-xl p-4">
                     <div className="flex justify-center mt-[-28px] h-20">
-                        <img src={props.src} className="flex justify-center w-1/4" height={props.height} width={props.width} style={{ marginTop: "-4rem" }}></img>
+                        <img src={props.src} className="flex justify-center w-1/4"  style={{ marginTop: "-4rem" }}></img>
                     </div>
                     <h1 className="text-2xl text-blue-800 mt-4 py-2 font-bold">{props.title}</h1>
                     <p className="text-center text-blue-800 py-2">{props.description}</p>
@@ -64,25 +64,25 @@ function Home() {
 
     return (
         <>
-            <Nav />
+            <Nav/>
             <section className="relative d-flex justify-center items-center">
                 <div className="relative">
                     <img className=" w-full h-full" src={Mainimg} />
-                    <div className="absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2 z-20 text-center text-white">
+                    <div className="absolute z-10 top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2  text-center text-white">
                         <h1 className="text-white text-center text-lg">Maximize Your Car's Value with Minimal Effort</h1>
                         <h1 className="text-white text-center font-bold text-4xl">Buy and Sell Cars For Free</h1>
                         <div className="mt-8">
-                            <a className="px-10 py-3 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sell Your Car</a>
+                            <a href="/" className="px-10 py-3 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sell Your Car</a>
                         </div>
                     </div>
                 </div>
-                <div className="absolute z-10 inset-0 bg-black bg-opacity-50 "></div>
+                <div className="absolute z-0 inset-0 bg-black bg-opacity-50 "></div>
             </section>
             <div className="bg-sky-100	px-20">
-                <section className="w-[60%] shadow-xl shadow-blue-500/50 bg-white z-30 rounded-xl mx-auto relative" style={{ height: "calc(50% + 12rem)", marginTop: "-10rem" }}>
+                <section className="w-[60%] shadow-xl shadow-blue-500/50 bg-white z-20 rounded-xl mx-auto relative" style={{ height: "calc(50% + 12rem)", marginTop: "-10rem" }}>
                     <div className="pt-8 flex justify-center gap-2">
-                        <a className="px-4 py-1 rounded-full text-white bg-gradient-to-b from-blue-700 to-cyan-500">New</a>
-                        <a className="px-4  py-1 rounded-full text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">Used</a>
+                        <a href="/" className="px-4 py-1 rounded-full text-white bg-gradient-to-b from-blue-700 to-cyan-500">New</a>
+                        <a href="/" className="px-4  py-1 rounded-full text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">Used</a>
                     </div>
                     <h1 className="text-blue-700 py-3  text-3xl text-center font-bold">Discover the Perfect Ride for You</h1>
                     <div className="p-3 mx-8 grid grid-cols-3 gap-3">
@@ -131,8 +131,8 @@ function Home() {
                                 <IoIosArrowDown className="h-8 w-8 text-blue-700" />
                             </div>
                         </div>
-                        <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex itms-center justify-center text-white rounded-xl ">
-                            <a className="text-center flex items-center text-2xl">Find Car</a>
+                        <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center justify-center text-white rounded-xl ">
+                            <a href="/" className="text-center flex items-center text-2xl">Find Car</a>
 
                         </div>
                     </div>
@@ -160,16 +160,16 @@ function Home() {
                     <h1 className="text-blue-700 border-l-4 border-blue-700 pl-4 text-4xl text-center font-bold">Popular Categories of Vehicles</h1>
                 </div>
                 <div className="flex flex-wrap gap-8 mx-10 w-full my-8">
-                    <a className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sedan</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Coupe</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">SUV</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Wagon</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Convertable</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Hatchback</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Crossover</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Minivan</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Pickup Truck</a>
-                    <a className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Electric</a>
+                    <a href="/" className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sedan</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Coupe</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">SUV</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Wagon</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Convertable</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Hatchback</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Crossover</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Minivan</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Pickup Truck</a>
+                    <a href="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Electric</a>
                 </div>
                 <div className="grid grid-cols-4 gap-6">
                     <Card src={cardCar} title="Honda Civic 2024" />
@@ -183,7 +183,7 @@ function Home() {
 
                 </div>
                 <div className="flex justify-center my-10">
-                    <a className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View More Sedan Cars</a>
+                    <a href="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View More Sedan Cars</a>
 
                 </div>
             </section>
@@ -193,7 +193,7 @@ function Home() {
                         <img className="p-4 mt-5" height={115} width={145} src={Logo}></img>
                         <h1 className="text-blue-800 border-l-4 font-bold pl-4 border-blue-800 text-5xl mt-10 text-left">Sell Your Car In Best Price <br /> At Cars.Me</h1>
                         <div className="flex pt-5 my-5">
-                            <a className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">Register Your Cars</a>
+                            <a href="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">Register Your Cars</a>
 
                         </div>
                     </div>
@@ -216,7 +216,7 @@ function Home() {
                     <CarCard />
                 </div>
                 <div className="flex justify-center pt-5 my-5">
-                    <a className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View All Featured Cars</a>
+                    <a href="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View All Featured Cars</a>
 
                 </div>
             </div>

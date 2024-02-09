@@ -16,7 +16,7 @@ const CarCard = () => {
                 <div className="p-4">
                     <div className="flex pb-2 justify-between">
                         <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">Volkswagen ID.5 2023</h1>
-                        <a className="px-7  py-1 rounded-xl text-red-600 bg-transparent  border-1 border border-blue-500 ">9/10</a>
+                        <a href="/" className="px-7  py-1 rounded-xl text-red-600 bg-transparent  border-1 border border-blue-500 ">9/10</a>
                     </div>
                         <p className="text-left mb-3 text-red-600 text-lg"> Dubai</p>
                     <div className="grid grid-cols-3 gap-5">
@@ -48,7 +48,7 @@ const CarCard = () => {
                 </div>
                 <div className="mb-2 p-4 flex justify-between">
                 <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">AED 1,95,000</h1>
-                    <FaRegHeart className="text-blue-700 w-8 h-8" />
+                    <FaRegHeart className="text-blue-800 w-8 h-8" />
                 </div>
             </div>
         </>

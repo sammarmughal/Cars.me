@@ -11,11 +11,11 @@ function Footer() {
     <div className="h-8 w-full bg-gradient-to-b from-blue-700 to-cyan-500"></div>
       <div className="bg-sky-100">
       <div className="grid grid-cols-4 py-10">
-        <div className="">
-          <div className="ml-20">
+        <div className="ml-10">
+          <div className="ml-5">
             <img className="p-4" height={115} width={155} src={Logo}></img>
           </div>
-          <p className="px-5">
+          <p className="pl-10  text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -96,7 +96,7 @@ function Footer() {
                     <input
                       type="text"
                       placeholder="Email"
-                      className="form-control rounded-0 block w-full p-2 text-base font-normal bg-sky-200 leading-6 text-gray-800  hover:ring ring-blue-300 ring-offset-0 rounded-none transition duration-150 ease-in-out"
+                      className="form-control rounded-0 block w-full p-2 text-base font-normal bg-sky-200 leading-6 text-gray-800  focus:ring hover:ring focus:ring-blue-300 ring-offset-0 rounded-none transition duration-150 ease-in-out"
                       style={{border: '0px' }}
                     />
                     <button aria-label="Subscribe" className="rounded-none inline-block font-normal leading-6  select-none border-transparent py-2 px-4 text-base  transition duration-150 ease-in-out bg-gradient-to-b from-blue-700 to-cyan-500  font-semibold text-base  text-white">
@@ -108,7 +108,7 @@ function Footer() {
         </div>
         </div>
         <div className="flex justify-center pb-4">
-            <p>© Copyrights 2024 <span className="text-red-600">Cars.  </span><span className="text-blue-700">me</span> - All rights <br/> reserved.</p>
+            <p className="text-center">© Copyrights 2024 <span className="text-red-600">Cars.  </span><span className="text-blue-700">me</span> - All rights <br/> reserved.</p>
         </div>
       </div>
     </>
