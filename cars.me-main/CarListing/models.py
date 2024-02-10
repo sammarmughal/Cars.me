@@ -45,6 +45,8 @@ class Car(models.Model):
     car_color = models.CharField(max_length=50,default='black', choices=COLOR_CHOICES )
     car_warrenty = models.CharField(max_length=50,default='Yes', choices= WARRENTY_CHOICES)
     car_description = models.TextField(null=True)
+    car_rating = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    car_city = models.CharField(default='Dubai')
     
     def __str__(self):
         return self.car_name
