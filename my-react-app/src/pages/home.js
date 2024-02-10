@@ -199,7 +199,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="w-1/2 flex justify-end">
-                        <img src={car} />
+                        <img src={car} className="ease-in-out duration-500  "/>
                     </div>
                 </div>
 

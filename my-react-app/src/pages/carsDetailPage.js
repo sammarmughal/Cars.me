@@ -227,7 +227,7 @@ function CarsDetail() {
               </Link>
             </div>
           </div>
-          <div className="w-1/2 flex justify-end">
+          <div className="w-1/2 ease-in-out duration-300  flex justify-end">
             <img src={car} />
           </div>
         </div>
