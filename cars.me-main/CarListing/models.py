@@ -46,7 +46,42 @@ class Car(models.Model):
     car_warrenty = models.CharField(max_length=50,default='Yes', choices= WARRENTY_CHOICES)
     car_description = models.TextField(null=True)
     car_rating = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
-    car_city = models.CharField(default='Dubai')
+    car_city = models.CharField(max_length=30, default='Dubai')
+    car_price = models.IntegerField(default=0)
+    car_power = models.IntegerField(default=0)
+    # car_techinal_features = models.ManyToManyField(TechinicalFeatures)
+    # car_extras = models.ManyToManyField(Extras)
     
     def __str__(self):
         return self.car_name
+    
+    
+    
+    
+    
+    
+    
+# class TechinicalFeatures(models.Model):
+#     TECHNIAL_FEATURE_CHOICES = [
+#         ('adaptive cruise control', 'Adaptive Cruise Control'),
+#         ('blind spot warning', 'Blind spot Warning'),
+#         ('airbags', 'AirBags'),
+#         ('usb outlets', 'USB Outlets'),
+#     ]
+#     car_techinal_features = models.CharField(max_length= 100, default='AirBags', choices=TECHNIAL_FEATURE_CHOICES)
+    
+#     def __str__(self):
+#         return f"{self.car_techinal_features},".capitalize()
+    
+
+# class Extras(models.Model):
+#     EXTRAS_CHOICES = [
+#         ('air conditioning','Air Conditioning'),
+#         ('climate control','Climate Control'),
+#         ('leather seats','Leather Seats'),
+#         ('power mirrors','Power mirrors'),
+#     ]
+#     car_extras = models.CharField(max_length=100, default='Air Conditioning', choices=EXTRAS_CHOICES)
+    
+#     def __str__(self):
+#         return f"{self.car_extras},".capitalize()
