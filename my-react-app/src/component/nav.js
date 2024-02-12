@@ -36,15 +36,15 @@ function Nav() {
     <>
       <nav className="">
         <section className="w-full p-2 flex justify-end items-center h-14 bg-gradient-to-b from-blue-700 to-cyan-500">
-          <div className="flex gap-2 mx-16">
-            <p className="text-white text-lg font-normal">ENG</p>
+          <div className="flex items-center gap-2 mx-16">
+            <p className="text-white text-sm font-normal">ENG</p>
             <div className="border-l flex border-1" onClick={handleClick}>
               <MdOutlineLogin className="w-7 h-7 text-white mx-2" stroke="2" />
-              <p className="text-white text-lg font-normal">Login</p>
+              <p className="text-white text-sm font-normal">Login</p>
             </div>
             <div className="border-l flex border-1" onClick={handleClickSignUp}>
               <RxPerson className="w-7 h-7 text-white mx-2" stroke="2" />
-              <p className="text-white text-lg font-normal">Register</p>
+              <p className="text-white text-sm font-normal">Register</p>
             </div>
           </div>
         </section>
@@ -122,7 +122,7 @@ function Nav() {
                 <img className="" height={115} width={155} src={Logo}></img>
               </div>
               <div className="w-full p-6">
-                <h1 className="text-blue-800 text-xl pt-6 font-bold">
+                <h1 className="text-blue-800 text-lg pt-6 font-bold">
                   Enter Your Phone Number Or E-mail
                 </h1>
                 <div className="block my-4 gap-4">
@@ -141,12 +141,12 @@ function Nav() {
                 </div>
                 <Link
                   to="/"
-                  className="text-left justify-start underline text-xl font-bold text-blue-800"
+                  className="text-left justify-start underline text-lg font-bold text-blue-800"
                 >
                   Forgotten Password?
                 </Link>
                 <button
-                  className="form-control rounded-lg block w-full p-4 my-4 text-white text-xl font-black leading-6 bg-blue-600  transition duration-150 ease-in-out"
+                  className="form-control rounded-lg block w-full p-4 my-4 text-white text-lg font-black leading-6 bg-blue-600  transition duration-150 ease-in-out"
                   style={{ border: "0px" }}
                 >
                   Log In
@@ -156,7 +156,7 @@ function Nav() {
                   className="text-left justify-start text-lg font-noraml text-blue-800"
                 >
                   You Have An Account yet?{" "}
-                  <Link to="/" className="text-xl underline font-bold"> Sign Up Here</Link>
+                  <Link to="/" className="text-lg underline font-bold"> Sign Up Here</Link>
                 </p>
               </div>
             </div>
@@ -183,7 +183,7 @@ function Nav() {
                 <img className="" height={115} width={155} src={Logo}></img>
               </div>
               <div className="w-full p-4">
-                <p className="text-slate-500 w-full py-1 underline text-left text-xl pt-3">
+                <p className="text-slate-500 w-full py-1 underline text-left text-lg pt-3">
                   +971 <span className="px-2">|</span>{" "}
                   ______________________________________________
                 </p>
@@ -205,7 +205,7 @@ function Nav() {
                   >
                     <div className="w-4/6 flex justify-between items-center">
                       <img src={google} className="h-8 w-8 " />
-                      <p className="text-blue-800 font-bold text-xl">
+                      <p className="text-blue-800 font-bold text-lg">
                         Continue With Google
                       </p>
                     </div>
@@ -216,7 +216,7 @@ function Nav() {
                   >
                     <div className="w-4/6 flex justify-between">
                       <img src={facebook} className="h-8 w-8 " />
-                      <p className="text-blue-800 font-bold text-xl">
+                      <p className="text-blue-800 font-bold text-lg">
                         Continue With Facebook
                       </p>
                     </div>
@@ -227,7 +227,7 @@ function Nav() {
                   >
                     <div className="w-4/6 flex justify-between items-center">
                       <img src={email} className="h-6 w-8 " />
-                      <p className="text-blue-800 font-bold text-xl">
+                      <p className="text-blue-800 font-bold text-lg">
                         Continue With E-mail
                       </p>
                     </div>
@@ -238,7 +238,7 @@ function Nav() {
                   className="text-left justify-start text-lg font-normal text-blue-800"
                 >
                   You Have An Account yet?{" "}
-                  <span className="text-xl underline font-bold">
+                  <span className="text-lg underline font-bold">
                     {" "}
                     Login Here
                   </span>

@@ -31,7 +31,7 @@ function Home() {
                 <div className="bg-white hover:shadow-inner rounded-2xl shadow-lg shadow-blue-500/50">
                     <img className="rounded-2xl" src={props.src}></img>
                     <div className="p-4">
-                        <h1 className="text-blue-700 text-left mb-2 font-bold text-2xl">{props.title}</h1>
+                        <h1 className="text-blue-700 text-left mb-2 font-bold text-xl">{props.title}</h1>
                         <div className="flex gap-2">
                             <FaStar className="text-amber-500" />
                             <FaStar className="text-amber-500" />
@@ -42,7 +42,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="mb-2 p-4 flex justify-between">
-                        <Link to="/" className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Shop Now</Link>
+                        <Link  className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Shop Now</Link>
                         <FaRegHeart className="text-blue-700 w-8 h-8" />
                     </div>
                 </div>
@@ -54,9 +54,9 @@ function Home() {
             <>
                 <div className="bg-white hover:shadow-lg border border-slate-400 rounded-xl p-4">
                     <div className="flex justify-center mt-[-28px] h-20">
-                        <img src={props.src} className="flex justify-center w-1/4"  style={{ marginTop: "-4rem" }}></img>
+                        <img src={props.src} className="flex justify-center w-2/5 h-auto"  style={{ marginTop: "-4rem" }}></img>
                     </div>
-                    <h1 className="text-2xl text-blue-800 mt-4 py-2 font-bold">{props.title}</h1>
+                    <h1 className="text-xl text-blue-800 mt-4 py-2 text-center font-bold">{props.title}</h1>
                     <p className="text-center text-blue-800 py-2">{props.description}</p>
                 </div>
             </>
@@ -72,68 +72,67 @@ function Home() {
                     <div className="absolute z-10 top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2  text-center text-white">
                         <h1 className="text-white text-center text-lg">Maximize Your Car's Value with Minimal Effort</h1>
                         <h1 className="text-white text-center font-bold text-4xl">Buy and Sell Cars For Free</h1>
-                        <div className="mt-8">
-                            <Link to="/" className="px-10 py-3 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sell Your Car</Link>
+                        <div class="mt-8 w-max justify-center mx-auto"><p class="px-10 py-3 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sell Your Car</p>
                         </div>
                     </div>
                 </div>
                 <div className="absolute z-0 inset-0 bg-black bg-opacity-50 "></div>
             </section>
             <div className="bg-sky-100	px-20">
-                <section className="w-[60%] shadow-xl shadow-blue-500/50 bg-white z-20 rounded-xl mx-auto relative" style={{ height: "calc(50% + 12rem)", marginTop: "-10rem" }}>
+                <section className="w-[60%] shadow-xl shadow-blue-500/50 bg-white z-20 rounded-xl mx-auto relative" style={{ height: "calc(50% + 12rem)", marginTop: "-8rem" }}>
                     <div className="pt-8 flex justify-center gap-2">
-                        <Link to="/" className="px-4 py-1 rounded-full text-white bg-gradient-to-b from-blue-700 to-cyan-500">New</Link>
-                        <Link to="/" className="px-4  py-1 rounded-full text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">Used</Link>
+                        <p  className="px-4 py-1 rounded-full text-white bg-gradient-to-b from-blue-700 to-cyan-500">New</p>
+                        <p  className="px-4  py-1 rounded-full text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">Used</p>
                     </div>
                     <h1 className="text-blue-700 py-3  text-3xl text-center font-bold">Discover the Perfect Ride for You</h1>
-                    <div className="p-3 mx-8 grid grid-cols-3 gap-3">
-                        <div className="border-1 border border-cyan-500  flex justify-between rounded-xl ">
+                    <div className="p-3 mx-8  grid grid-cols-3 gap-3">
+                        <div className="border-1 border border-cyan-500 text-xs font-medium flex justify-between rounded-xl ">
                             <div className="flex items-center p-2">
                                 <img src={fromIcon} className="" />
-                                <p className="pl-4 text-slate-700">From</p>
+                                <p className="pl-2 text-slate-700">From</p>
                             </div>
                             <div className="flex items-center p-2">
-                                <IoIosArrowDown className="h-8 w-8 text-blue-700" />
+                                <IoIosArrowDown className="h-6 w-6 text-blue-700" />
                             </div>
                         </div>
-                        <div className="border-1 border border-cyan-500  flex justify-between rounded-xl ">
+                        <div className="border-1 border  text-xs font-medium border-cyan-500  flex justify-between rounded-xl ">
                             <div className="flex items-center p-2">
                                 <img src={fromIcon} className="" />
-                                <p className="pl-4 text-slate-700">To</p>
+                                <p className="pl-2 text-slate-700">To</p>
                             </div>
                             <div className="flex items-center p-2">
-                                <IoIosArrowDown className="h-8 w-8 text-blue-700" />
+                                <IoIosArrowDown className="h-6 w-6 text-blue-700" />
                             </div>
                         </div>
-                        <div className="border-1 border border-cyan-500  flex justify-between rounded-xl ">
+                        <div className="border-1 border  text-xs font-medium border-cyan-500  flex justify-between rounded-xl ">
                             <div className="flex items-center p-2">
                                 <img src={mapIcon} className="" />
-                                <p className="pl-4 text-slate-700">Select Country</p>
+                                <p className="pl-2  text-slate-700">Select Country</p>
                             </div>
                             <div className="flex items-center p-2">
-                                <IoIosArrowDown className="h-8 w-8 text-blue-700" />
+                                <IoIosArrowDown className="h-6 w-6 text-blue-700" />
                             </div>
                         </div>
-                        <div className="border-1 border border-cyan-500  flex justify-between rounded-xl ">
+                        <div className="border-1 border  text-xs font-medium border-cyan-500  flex justify-between rounded-xl ">
                             <div className="flex items-center p-2">
                                 <img src={wheelIcon} className="" />
-                                <p className="pl-4 text-slate-700">Select Brand</p>
+                                <p className="pl-2 text-slate-700">Select Brand</p>
                             </div>
                             <div className="flex items-center p-2">
-                                <IoIosArrowDown className="h-8 w-8 text-blue-700" />
+                                <IoIosArrowDown className="h-6 w-6 text-blue-700" />
                             </div>
                         </div>
-                        <div className="border-1 border border-cyan-500  flex justify-between rounded-xl ">
+                        <div className="border-1 border  text-xs font-medium border-cyan-500  flex justify-between rounded-xl ">
                             <div className="flex items-center p-2">
                                 <img src={TrnsmissionIcon} width={35} height={35} className="h-8" />
-                                <p className="pl-4 text-slate-700 text-nowrap">Transmission Type</p>
+                                <p className="pl-2 text-slate-700 text-nowrap">Transmission Type</p>
                             </div>
                             <div className="flex items-center p-2">
-                                <IoIosArrowDown className="h-8 w-8 text-blue-700" />
+                                <IoIosArrowDown className="h-6 w-6 text-blue-700" />
                             </div>
                         </div>
-                        <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center justify-center text-white rounded-xl ">
-                            <Link to="/" className="text-center flex items-center text-2xl">Find Car</Link>
+                        <div className="bg-gradient-to-b text-xs font-medium  from-blue-700 to-cyan-500 flex items-center justify-center text-white rounded-xl ">
+                            <p  className="text-center flex items-center text-lg">Find Car</p>
 
                         </div>
                     </div>
@@ -142,8 +141,8 @@ function Home() {
                 <section>
                     <h1 className="text-blue-700 border-l-4 font-bold pl-4 border-blue-700 text-3xl mt-10 text-left">About Cars.Me</h1>
                     <div className="flex gap-6">
-                        <p className="w-[60%] text-left pt-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p text-sm  className="w-[60%] text-xs text-left pt-5">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco la text-sm boris nisi ut aliquip ex ea commodo consequat.
                         </p>
                         <div className="w-[50%] relative">
                             <img src={aboutCar} className="w-3/4" />
@@ -160,17 +159,17 @@ function Home() {
                 <div className="flex justify-center items-center">
                     <h1 className="text-blue-700 border-l-4 border-blue-700 pl-4 text-4xl text-center font-bold">Popular Categories of Vehicles</h1>
                 </div>
-                <div className="flex flex-wrap gap-8 mx-10 w-full my-8">
-                    <Link to="/" className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sedan</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Coupe</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">SUV</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Wagon</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Convertable</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Hatchback</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Crossover</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Minivan</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Pickup Truck</Link>
-                    <Link to="/" className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Electric</Link>
+                <div className="flex flex-wrap gap-8 w-full my-8">
+                    <p  className="px-4 py-1 rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500">Sedan</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Coupe</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">SUV</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Wagon</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Convertable</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Hatchback</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Crossover</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Minivan</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Pickup Truck</p>
+                    <p  className="px-4  py-1 rounded-xl text-blue-700 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-blue-500 ">Electric</p>
                 </div>
                 <div className="grid grid-cols-4 gap-6">
                     <Card src={cardCar} title="Honda Civic 2024" />
@@ -184,7 +183,7 @@ function Home() {
 
                 </div>
                 <div className="flex justify-center my-10">
-                    <Link to="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View More Sedan Cars</Link>
+                    <p  className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View More Sedan Cars</p>
 
                 </div>
             </section>
@@ -192,32 +191,28 @@ function Home() {
                 <div className="w-11/12 flex justify-between mx-auto">
                     <div>
                         <img className="p-4 mt-5" height={115} width={145} src={Logo}></img>
-                        <h1 className="text-blue-800 border-l-4 font-bold pl-4 border-blue-800 text-5xl mt-10 text-left">Sell Your Car In Best Price <br /> At Cars.Me</h1>
+                        <h1 className="text-blue-800 border-l-4 font-bold pl-4 border-blue-800 text-4xl mt-10 text-left">Sell Your Car In Best Price <br /> At Cars.Me</h1>
                         <div className="flex pt-5 my-5">
-                            <Link to="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">Register Your Cars</Link>
+                            <p  className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">Register Your Cars</p>
 
                         </div>
                     </div>
                     <div className="w-1/2 flex justify-end">
-                        <img src={car} className="ease-in-out duration-500  "/>
+                        <img src={car} className="ease-in-out duration-500"/>
                     </div>
                 </div>
 
             </div>
             <div className="w-11/12 mx-auto my-6">
-                <div className="flex justify-center items-center">
+                <div className="flex py-5 justify-center items-center">
                     <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 text-4xl text-center font-bold">Featured Used Cars</h1>
                 </div>
                 <div className="grid grid-cols-3 my-6 gap-5">
                     <CarCard />
-                    <CarCard />
-                    <CarCard />
-                    <CarCard />
-                    <CarCard />
-                    <CarCard />
+                  
                 </div>
                 <div className="flex justify-center pt-5 my-5">
-                    <Link to="/" className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View All Featured Cars</Link>
+                    <p  className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500">View All Featured Cars</p>
 
                 </div>
             </div>

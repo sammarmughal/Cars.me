@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={   <Home />}/>
-         <Route exact path="/carsDetail" element={<CarsDetail/> }/>
+        <Route exact path="/" element={<Home />}/>
+         <Route exact path="/carDetail/:car_name/:id" element={<CarsDetail /> }/>
       </Routes>
     </>
   );
