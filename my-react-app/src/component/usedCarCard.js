@@ -26,20 +26,21 @@ const CarCard = () => {
         console.error('Error fetching data:', error);
     });
     }; 
+    
 console.log(data);
       return (
           <>
             {data && data.length> 0 && data.map((car, index) => (
           <Link key={car.id} to={{ pathname: `/carDetail/${car.car_name}/${car.id}`, state: { carData: car } }}>
           <div key={index} className="bg-white hover:shadow-inner rounded-3xl shadow-lg shadow-blue-500/50">
-            <img className="rounded-b-2xl" src={redCar}></img>
+            <img className="rounded-b-2xl w-full" src={redCar}></img>
             <div className="p-4">
               <div className="flex pb-2 justify-between">
                 <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">
                   {car.car_name}
                 </h1>
-                <p className="px-7  py-1 rounded-xl text-red-600 bg-transparent  border-1 border border-blue-500 ">
-                  9/10
+                <p className="px-6  rounded-xl text-red-600 bg-transparent flex items-center  border-1 border border-blue-500 ">
+                 {car.car_rating}/10
                 </p>
               </div>
               <p className="text-left mb-3 text-red-600 text-lg"> Dubai</p>
@@ -60,7 +61,7 @@ console.log(data);
                   <img src={engine}  className="w-8 h-8"/>
                   <p className="text-red-600 text-sm"> {car.car_engine_capacity}cc</p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-around items-center">
                   <img src={gearLiver}  className="w-7 h-7"/>
                   <p className="text-red-600 text-sm capitalize">{car.car_transmission} </p>
                 </div>

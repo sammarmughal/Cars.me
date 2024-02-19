@@ -15,7 +15,11 @@ code {
     monospace;
 }
 
-
+.box-shadow{
+  -webkit-box-shadow:0px 0px 5px 3px rgba(3,167,255,0.93);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(3,167,255,0.93);
+  box-shadow: 0px 0px 5px 3px rgba(3,167,255,0.93);
+}
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
@@ -62,14 +66,21 @@ code {
     }
   }
 
-
+ 
 
 }
 
 @layer components {
 
-  
-
+  .bg-gradient-blue{
+    @apply rounded-xl text-white bg-gradient-to-b from-blue-700 to-cyan-500 hover:bg-gradient-to-b hover:from-cyan-500 hover:to-blue-700;
+  }
+.save-btn{
+  @apply rounded-sm px-6 py-2 font-bold text-white bg-gradient-to-b from-blue-700 to-cyan-500 hover:bg-gradient-to-b hover:from-cyan-500 hover:to-blue-700;
+}
+.nav-link{
+  @apply text-black px-2 py-1 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 hover:rounded-xl ;
+}
   /* 
 px-4 py-2 text-white text-sm bg-gradient-to-br from-red-400 via-red-900 to-red-700 rounded-full shadow mr-5 tooltip hover:text-amber-300 */
 

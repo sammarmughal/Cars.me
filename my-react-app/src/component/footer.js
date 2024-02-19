@@ -11,19 +11,19 @@ function Footer() {
     <>
     <div className="h-8 w-full bg-gradient-to-b from-blue-700 to-cyan-500"></div>
       <div className="bg-sky-100">
-      <div className="grid grid-cols-4 py-10">
-        <div className="ml-10">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 py-10 mx-auto justify-center">
+        <div className="sm:ml-10 items-center lg:block lg:col-span-1 sm:col-span-3 flex">
           <div className="ml-5">
-            <img className="p-4" height={115} width={155} src={Logo}></img>
+            <img className="lg:p-4" height={115} width={155} src={Logo}></img>
           </div>
-          <p className="pl-10  text-left">
+          <p className="pl-10 lg:w-[100%] w-[50%]  flex items-center text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.{" "}
           </p>
         </div>
-        <div className="lg:mx-auto sm:mx-0">
+        <div className="mx-auto">
           <h2 className="text-xl text-blue-800 sm:text-2xl  font-semibold py-5 mt-3  md:mt-0">
             Quick Links
           </h2>
@@ -54,7 +54,7 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className="">
+        <div className="mx-auto lg:mx-0">
           <h2 className="text-xl text-left ml-6  sm:text-2xl text-blue-800 font-semibold py-5 mt-3 md:mt-0">
             Get In Touch{" "}
           </h2>
@@ -85,7 +85,7 @@ function Footer() {
           </div>
         </div>
         <div className="sm:mx-0 mx-auto">
-              <h2 className="text-xl sm:text-2xl py-5  text-left text-blue-800 font-semibold">
+              <h2 className="text-xl sm:text-2xl py-5 mt-3 text-left text-blue-800 font-semibold">
                 Subscribe
               </h2>
               <div className="flex my-6 text-sm sm:text-base">
@@ -95,9 +95,9 @@ function Footer() {
                   </p>
                   <div className="flex mt-2">
                     <input
-                      type="text"
+                      type="email"
                       placeholder="Email"
-                      className="form-control rounded-0 block w-full p-2 text-base font-normal bg-sky-200 leading-6 text-gray-800  focus:ring hover:ring focus:ring-blue-300 ring-offset-0 rounded-none transition duration-150 ease-in-out"
+                      className="form-control rounded-0 block w-full p-2 text-base font-normal bg-sky-200 leading-6 text-gray-800 focus:outline-none focus:ring hover:ring focus:ring-blue-300 ring-offset-0 rounded-none transition duration-150 ease-in-out"
                       style={{border: '0px' }}
                     />
                     <button aria-label="Subscribe" className="rounded-none inline-block font-normal leading-6  select-none border-transparent py-2 px-4 text-base  transition duration-150 ease-in-out bg-gradient-to-b from-blue-700 to-cyan-500  font-semibold text-base  text-white">

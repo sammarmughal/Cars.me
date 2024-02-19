@@ -55,12 +55,12 @@ const CarsDetail = () => {
           <input
             type="text"
             placeholder="Search by Keyword (e.g. Toyota Cars)"
-            className="form-control rounded-l-lg block w-full p-2 py-4 text-lg font-normal px-4 bg-white leading-6 text-gray-800  focus:ring hover:ring focus:ring-blue-300 ring-offset-0  transition duration-150 ease-in-out"
+            className="form-control rounded-l-lg block w-full p-2 py-4 text-lg font-normal px-4 bg-white leading-6 text-gray-800 focus:outline-none  focus:ring hover:ring focus:ring-blue-300 ring-offset-0  transition duration-150 ease-in-out"
             style={{ border: "0px" }}
           />
           <button
             aria-label="Subscribe"
-            className="rounded-lg inline-block font-normal leading-6 ml-[-4px] select-none border-transparent py-2 px-4 text-lg  transition duration-150 ease-in-out bg-gradient-to-b from-blue-700 to-cyan-500  font-semibold text-base  text-white"
+            className="rounded-lg bg-gradient-blue inline-block font-normal leading-6 ml-[-4px] select-none border-transparent py-2 px-4 text-lg  transition duration-150 ease-in-out font-semibold text-base "
           >
             {""}
             Search
@@ -76,7 +76,9 @@ const CarsDetail = () => {
             <h1 className="text-blue-800 font-medium text-2xl text-left py-2">
               {carDetail.car_name}
             </h1>
-            <p className="text-blue-800 text-left pb-2">{carDetail.date_added}</p>
+            <p className="text-blue-800 text-left pb-2">
+              {carDetail.date_added}
+            </p>
           </div>
           <div className="flex gap-4">
             <div className="w-[75%]">
@@ -206,15 +208,18 @@ const CarsDetail = () => {
                 </div>
                 <div className="text-right text-slate-600 text-sm px-5">
                   <p>
-                    Air Conditioning, AM/FM Radio, Climate Control, Leather<br/>
-                    Seats, Navigation System, Power Locks, Power Mirrors, Power<br/>
-                    Seats, Power Sunroof, Power Windows, Premium Sound System,<br/>
+                    Air Conditioning, AM/FM Radio, Climate Control, Leather
+                    <br />
+                    Seats, Navigation System, Power Locks, Power Mirrors, Power
+                    <br />
+                    Seats, Power Sunroof, Power Windows, Premium Sound System,
+                    <br />
                     Rear View Camera, Sunroof
                   </p>
                 </div>
                 <div className="flex mx-5 pt-3 text-slate-600  pb-2 border-b border-slate-800">
-                    <p>Extras</p>
-                  </div>
+                  <p>Extras</p>
+                </div>
               </div>
             </section>
             <section className="bg-white hover:shadow-inner w-full rounded-xl my-6  p-6 flex flex-col shadow-xl shadow-blue-500/50 ">
@@ -223,10 +228,8 @@ const CarsDetail = () => {
                 Description{" "}
               </h1>
               <div className="text-left my-5 text-slate-600 text-sm">
-                  <p>
-                   - &#160;{carDetail.car_description}
-                  </p>
-                </div>
+                <p>- &#160;{carDetail.car_description}</p>
+              </div>
               <div className="flex items-end justify-end">
                 <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center py-1 px-5 shadow-lg shadow-blue-500/50  justify-center text-white rounded-2xl ">
                   <p className="text-center  flex items-center text-sm">
@@ -274,7 +277,9 @@ const CarsDetail = () => {
                       height={35}
                       className="h-8"
                     />
-                    <p className="pl-4 text-sm font-medium text-nowrap">What's App</p>
+                    <p className="pl-4 text-sm font-medium text-nowrap">
+                      What's App
+                    </p>
                   </div>
                 </div>
                 <div className="border-1 border mx-4 border-blue-700 px-8 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
@@ -300,7 +305,7 @@ const CarsDetail = () => {
               <div className="h-60">
                 <iframe
                   className="rounded-xl map px-4 p-4"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13603.897520700484!2d74.3641293!3d31.5248636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2996ebf1e1c519!2sX-EFFECTIVE!5e0!3m2!1sen!2s!4v1646999703464!5m2!1sen!2s" 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13603.897520700484!2d74.3641293!3d31.5248636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2996ebf1e1c519!2sX-EFFECTIVE!5e0!3m2!1sen!2s!4v1646999703464!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   allowFullScreen=""
@@ -308,8 +313,8 @@ const CarsDetail = () => {
                 ></iframe>
               </div>
             </div>
-            <div className="bg-gradient-to-b from-blue-700 my-4 to-cyan-500 flex items-center py-3 shadow-lg shadow-blue-500/50  justify-center text-white rounded-xl ">
-              <p  className="text-center flex items-center text-lg">
+            <div className="flex items-center py-3 shadow-lg shadow-blue-500/50  justify-center bg-gradient-blue">
+              <p className="text-center flex items-center text-lg">
                 Report This Ad{" "}
               </p>
             </div>
@@ -325,10 +330,7 @@ const CarsDetail = () => {
           <CarCard />
         </div>
         <div className="flex justify-center pt-5 my-5">
-          <Link
-            to="/"
-            className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500"
-          >
+          <Link to="/cars" className="px-4 py-2 rounded-lg bg-gradient-blue">
             View More
           </Link>
         </div>
@@ -341,12 +343,7 @@ const CarsDetail = () => {
               Sell Your Car In Best Price <br /> At Cars.Me
             </h1>
             <div className="flex pt-5 my-5">
-              <Link
-                to="/"
-                className="px-4 py-2 rounded-lg text-white bg-gradient-to-b from-blue-700 to-cyan-500"
-              >
-                Register Your Cars
-              </Link>
+              <p className="px-4 py-2 bg-gradient-blue">Register Your Cars</p>
             </div>
           </div>
           <div className="w-1/2 ease-in-out duration-300  flex justify-end">
@@ -354,21 +351,9 @@ const CarsDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-11/12 mx-auto  my-10">
-        <div className="flex justify-center py-4 items-center">
-          <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 text-4xl text-center font-bold">
-            Customer Reviews
-          </h1>
-        </div>
-        <div className="grid grid-cols-3 my-6 gap-5">
-          <CustomerReviews />
-          <CustomerReviews />
-          <CustomerReviews />
-        </div>
-        <div className="flex w-3/4  mx-auto py-5 my-5">
-          <img src={banner2} />
-        </div>
-      </div>
+
+      <CustomerReviews />
+
       <Footer />
     </>
   );
