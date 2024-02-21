@@ -128,7 +128,7 @@ function Home() {
                   height={35}
                   className="h-8"
                 />
-                <p className="pl-2 text-slate-700 text-nowrap">
+                <p className="pl-2 text-slate-700 text-wrap sm:text-nowrap">
                   Transmission Type
                 </p>
               </div>
@@ -146,7 +146,7 @@ function Home() {
             About Cars.Me
           </h1>
           <div className="flex sm:flex-row flex-col-reverse gap-6">
-            <p className="sm:w-[60%]  text-sm sm:text-xs text-left pt-5">
+            <p className="sm:w-[60%]  text-sm  text-left pt-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -166,12 +166,12 @@ function Home() {
               text-sm boris nisi ut aliquip ex ea commodo consequat.
             </p>
             <div className="pt-5 sm:w-[50%] relative">
-              <img src={aboutCar} className="lg:w-3/4" />
-              <div className="absolute z-10 top-0 flex justify-center w-full">
+              <img src={aboutCar} className="w-full" />
+              <div className="absolute z-10 top-0 flex justify-center mx-auto w-full">
               <img
                 src={Logo}
-                className=" w-20 mx-auto lg:pt-4 pt-8"
-                style={{ left: "40%", transform: "translateX(-50%)" }}
+                className="w-20   pt-8"
+                style={{  transform: "translateX(-50%)" }}
               />
               </div>
             </div>

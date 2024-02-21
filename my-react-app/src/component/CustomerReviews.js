@@ -32,7 +32,7 @@ const CustomerReviews = () => {
             </div>
           </div>
           <div className="mb-2 p-4">
-            <p className="text-center text-blue-800 py-2">
+            <p className="text-center text-blue-800 md:py-2">
               {" "}
               I recently used this car-selling platform to list my vehicle, and
               the experience was outstanding. The user-friendly interface made
@@ -49,7 +49,7 @@ const CustomerReviews = () => {
     <>
       <div className="w-11/12 mx-auto  my-10">
         <div className="flex justify-center py-4 items-center">
-          <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 text-4xl text-center font-bold">
+          <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 lg:text-4xl sm:text-3xl text-xl text-center font-bold">
             Customer Reviews
           </h1>
         </div>
@@ -58,7 +58,7 @@ const CustomerReviews = () => {
           <ReviewCard />
           <ReviewCard />
         </div>
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           <div className="grid grid-cols-1 md:hidden my-6 gap-5">
             <div className={`${currentPage === 0 ? "block" : "hidden"}`}>
               <ReviewCard />

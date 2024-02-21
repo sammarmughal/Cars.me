@@ -32,50 +32,50 @@ console.log(data);
           <>
             {data && data.length> 0 && data.map((car, index) => (
           <Link key={car.id} to={{ pathname: `/carDetail/${car.car_name}/${car.id}`, state: { carData: car } }}>
-          <div key={index} className="bg-white hover:shadow-inner rounded-3xl shadow-lg shadow-blue-500/50">
+          <div key={index} className="bg-white hover:shadow-inner sm:rounded-3xl rounded-xl shadow-lg shadow-blue-500/50">
             <img className="rounded-b-2xl w-full" src={redCar}></img>
-            <div className="p-4">
+            <div className="sm:p-4 p-3">
               <div className="flex pb-2 justify-between">
-                <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">
+                <h1 className="text-blue-800 text-left mb-2 font-bold sm:text-2xl text-lg">
                   {car.car_name}
                 </h1>
-                <p className="px-6  rounded-xl text-red-600 bg-transparent flex items-center  border-1 border border-blue-500 ">
+                <p className="sm:px-6 px-2 rounded-xl text-red-600 bg-transparent flex items-center  border-1 border border-blue-500 ">
                  {car.car_rating}/10
                 </p>
               </div>
               <p className="text-left mb-3 text-red-600 text-lg"> Dubai</p>
-              <div className="grid grid-cols-3 gap-x-2 gap-y-5">
-                <div className="flex justify-around items-center">
-                  <img src={calendar} className="w-8 h-8"/>
-                  <p className="text-red-600 text-sm">{car.car_make}</p>
+              <div className="grid sm:grid-cols-3 grid-cols-2  gap-x-2 gap-y-5">
+                <div className="flex justify-between sm:justify-around items-center">
+                  <img src={calendar} className="sm:w-8 sm:h-8 w-6 h-6"/>
+                  <p className="text-red-600 text-xs sm:text-sm">{car.car_make}</p>
                 </div>
-                <div className="flex justify-around items-center">
-                  <img src={meter}  className="w-8 h-8"/>
-                  <p className="text-red-600 text-sm">{car.car_mileage}</p>
+                <div className="flex justify-between sm:justify-around items-center">
+                  <img src={meter}  className="sm:w-8 sm:h-8 w-6 h-6"/>
+                  <p className="text-red-600 text-xs sm:text-sm">{car.car_mileage}</p>
                 </div>
-                <div className="flex justify-around items-center">
-                  <img src={group}  className="w-8 h-8"/>
-                  <p className="text-red-600 text-sm text-nowrap"> {car.car_seating_capacity} People</p>
+                <div className="flex justify-between sm:justify-around items-center">
+                  <img src={group}  className="sm:w-8 sm:h-8 w-6 h-6"/>
+                  <p className="text-red-600 text-xs sm:text-sm text-nowrap"> {car.car_seating_capacity} People</p>
                 </div>
-                <div className="flex justify-around items-center">
-                  <img src={engine}  className="w-8 h-8"/>
-                  <p className="text-red-600 text-sm"> {car.car_engine_capacity}cc</p>
+                <div className="flex justify-between sm:justify-around items-center">
+                  <img src={engine}  className="sm:w-8 sm:h-8 w-6 h-6"/>
+                  <p className="text-red-600 text-xs sm:text-sm"> {car.car_engine_capacity}cc</p>
                 </div>
-                <div className="flex justify-around items-center">
+                <div className="flex justify-between sm:justify-around items-center">
                   <img src={gearLiver}  className="w-7 h-7"/>
-                  <p className="text-red-600 text-sm capitalize">{car.car_transmission} </p>
+                  <p className="text-red-600 text-xs sm:text-sm capitalize">{car.car_transmission} </p>
                 </div>
-                <div className="flex justify-around items-center">
-                  <img src={fireSvgrepo}  className="w-8 h-8"/>
-                  <p className="text-red-600 text-sm capitalize"> {car.car_engine_type}</p>
+                <div className="flex justify-between sm:justify-around items-center">
+                  <img src={fireSvgrepo}  className="sm:w-8 sm:h-8 w-6 h-6"/>
+                  <p className="text-red-600 text-xs sm:text-sm capitalize"> {car.car_engine_type}</p>
                 </div>
               </div>
             </div>
             <div className="mb-2 p-4 flex justify-between">
-              <h1 className="text-blue-800 text-left mb-2 font-bold text-2xl">
+              <h1 className="text-blue-800 text-left mb-2 font-bold sm:text-2xl text-sm">
                 AED 1,95,000
               </h1>
-              <FaRegHeart className="text-blue-800 w-8 h-8" />
+              <FaRegHeart className="text-blue-800 sm:w-8 sm:h-8 w-5 h-5" />
             </div>
           </div>
          

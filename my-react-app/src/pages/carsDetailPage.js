@@ -17,7 +17,7 @@ import fireSvgrepo from "../images/HomepageAssets/fire-svgrepo-com.png";
 import bilal from "../images/HomepageAssets/bilal.png";
 import phone from "../images/CarsDetailPageAssets/phone.png";
 import email from "../images/CarsDetailPageAssets/email.png";
-import Car from "../images/HomepageAssets/car.png";
+import car from "../images/HomepageAssets/car.png";
 import whatsapp from "../images/CarsDetailPageAssets/whatsapp-svgrepo-com.png";
 import stars from "../images/CarsDetailPageAssets/stars.png";
 import { Link, useParams } from "react-router-dom";
@@ -48,19 +48,19 @@ const CarsDetail = () => {
         <div className="flex justify-center opacity-50 pt-6">
           <img src={Logo} className="w-1/5" height={300} width={350} />
         </div>
-        <h1 className="text-blue-800 py-5 text-4xl text-center font-bold">
+        <h1 className="text-blue-800 py-5  lg:text-4xl sm:text-3xl text-xl  text-center font-bold">
           Discover the Perfect Ride for You
         </h1>
-        <div className="flex justify-center mx-auto w-6/12 py-8">
+        <div className="flex justify-center mx-auto md:w-6/12 sm:w-3/4 w-10/12 py-8">
           <input
             type="text"
             placeholder="Search by Keyword (e.g. Toyota Cars)"
-            className="form-control rounded-l-lg block w-full p-2 py-4 text-lg font-normal px-4 bg-white leading-6 text-gray-800 focus:outline-none  focus:ring hover:ring focus:ring-blue-300 ring-offset-0  transition duration-150 ease-in-out"
+            className="form-control rounded-l-lg block w-full p-2 py-4 md:text-lg sm:text-sm text-xs font-normal px-4 bg-white leading-6 text-gray-800 focus:outline-none  focus:ring hover:ring focus:ring-blue-300 ring-offset-0  transition duration-150 ease-in-out"
             style={{ border: "0px" }}
           />
           <button
             aria-label="Subscribe"
-            className="rounded-lg bg-gradient-blue inline-block font-normal leading-6 ml-[-4px] select-none border-transparent py-2 px-4 text-lg  transition duration-150 ease-in-out font-semibold text-base "
+            className="inline-block font-normal leading-6 ml-[-4px] select-none border-transparent py-2 px-4 text-lg  transition duration-150 ease-in-out bg-gradient-blue font-semibold text-base"
           >
             {""}
             Search
@@ -71,8 +71,8 @@ const CarsDetail = () => {
         <img src={banner} />
       </div>
       <>
-        <section className="w-[85%] mx-auto">
-          <div>
+        <section className="lg:w-[85%] sm:w-[96%] mx-auto">
+          <div className="sm:block hidden">
             <h1 className="text-blue-800 font-medium text-2xl text-left py-2">
               {carDetail.car_name}
             </h1>
@@ -81,10 +81,10 @@ const CarsDetail = () => {
             </p>
           </div>
           <div className="flex gap-4">
-            <div className="w-[75%]">
+            <div className="sm:w-[75%] w-[96%] mx-auto">
               <img src={Mercedes} className="rounded-xl" />
             </div>
-            <div className="flex flex-col gap-4 w-[21%]">
+            <div className="sm:flex flex-col hidden gap-4 w-[21%]">
               <img src={mercedes} className="rounded-xl" />
               <img src={mercedes} className="rounded-xl" />
               <div className="relative">
@@ -96,12 +96,58 @@ const CarsDetail = () => {
             </div>
           </div>
         </section>
-        <section className="w-[85%] flex gap-5 py-6 mx-auto">
-          <div className="w-[70%]">
-            <h1 className="text-blue-800 text-2xl text-left  font-bold">
+        <div className="w-[96%] mx-auto sm:hidden block">
+        <div className="bg-white hover:shadow-inner rounded-xl w-full justify-around  my-10 p-2  flex flex-row shadow-xl shadow-blue-500/50">
+          <div className="block items-center">
+            <h1 className="text-blue-800 font-medium text-2xl text-left py-2">
+              {carDetail.car_name}
+            </h1>
+            <p className="text-blue-800 text-left pb-2">
+              {carDetail.date_added}
+            </p>
+          </div>
+          <div className="flex items-start">
+            <h1 className="text-blue-800 text-left py-2 text-xl font-bold">
+              AED {carDetail.car_price}
+            </h1>
+          </div>
+        </div>
+        <div className="bg-white hover:shadow-inner w-full rounded-xl  p-2  flex flex-row gap-2 shadow-xl shadow-blue-500/50 ">
+          <div className="flex  flex-row gap-2">
+            <img src={bilal} className="p-1" height={100} width={100} />
+            <div className="flex flex-col  py-3 gap-3">
+              <h2 className="text-blue-800 text-sm lg:text-nowrap">
+                Posted By:
+                <span className="text-xs"> Bilal Motors LLC </span>
+              </h2>
+              <img src={stars} className="" height={80} width={80} />
+            </div>
+          </div>
+          <div className="flex  flex-row  py-5 gap-3">
+            <div className="border-1 border  border-blue-700  px-2 py-1 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+              <div className="flex items-center">
+                <img src={phone} width={35} height={35} className="h-8" />
+              </div>
+            </div>
+            <div className="border-1 border  border-blue-700  px-2 py-1 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500  flex justify-between rounded-xl ">
+              <div className="flex items-center">
+                <img src={whatsapp} width={35} height={35} className="h-8" />
+              </div>
+            </div>
+            <div className="border-1 border  border-blue-700  px-2 py-1 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+              <div className="flex items-center">
+                <img src={email} width={35} height={35} className="h-8" />
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <section className="lg:w-[85%] sm:w-[96%] flex sm:flex-row flex-col gap-5 py-6 mx-auto">
+          <div className="sm:w-[70%] w-[96%] mx-auto">
+            <h1 className="text-blue-800 text-2xl text-left sm:block hidden font-bold">
               Item Overview
             </h1>
-            <div className="flex w-full py-6 gap-3">
+            <div className="sm:grid grid-cols-3 hidden lg:grid-cols-6 w-full py-6 gap-3">
               <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl shadow-blue-500/50 ">
                 <img src={calendar} />
                 <p className="text-red-600 py-2 text-lg">
@@ -111,14 +157,14 @@ const CarsDetail = () => {
               </div>
               <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl shadow-blue-500/50 ">
                 <img src={meter} />
-                <p className="text-red-600 py-2 text-lg">
+                <p className="text-red-600 py-2 text-lg text-center">
                   {" "}
                   {carDetail.car_mileage} Km
                 </p>
               </div>
               <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl shadow-blue-500/50 ">
                 <img src={group} />
-                <p className="text-red-600 py-2 text-lg">
+                <p className="text-red-600 py-2 text-lg text-center">
                   {" "}
                   {carDetail.car_seating_capacity} People
                 </p>
@@ -239,37 +285,37 @@ const CarsDetail = () => {
               </div>
             </section>
           </div>
-          <div className="w-[30%] flex flex-col gap-5">
-            <div className="bg-white hover:shadow-inner w-full rounded-xl  p-4 flex flex-col shadow-xl shadow-blue-500/50 ">
-              <h1 className="text-blue-800 text-left py-2 text-3xl font-normal">
+          <div className="sm:w-[30%] w-[96%] mx-auto flex flex-col gap-5">
+            <div className="bg-white hover:shadow-inner w-full rounded-xl  p-4 sm:flex hidden flex-col shadow-xl shadow-blue-500/50 ">
+              <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-normal">
                 {" "}
                 Price
               </h1>
-              <h1 className="text-blue-800 text-left py-2 text-3xl font-bold">
+              <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-bold">
                 AED {carDetail.car_price}
               </h1>
             </div>
-            <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 flex flex-col shadow-xl shadow-blue-500/50 ">
-              <div className="flex  gap-3">
+            <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 hidden sm:flex flex-col shadow-xl shadow-blue-500/50 ">
+              <div className="flex md:flex-row flex-col gap-3">
                 <img src={bilal} className="" height={100} width={100} />
-                <div className="flex flex-col py-3 gap-3">
-                  <h2 className="text-blue-800 text-sm text-nowrap">
+                <div className="flex flex-col  py-3 gap-3">
+                  <h2 className="text-blue-800 text-sm lg:text-nowrap">
                     Posted By:
                     <span className="text-xs"> Bilal Motors LLC </span>
                   </h2>
                   <img src={stars} className="" height={100} width={100} />
                 </div>
               </div>
-              <div className="flex flex-col py-5 gap-4">
-                <div className="border-1 border mx-4 border-blue-700 px-8 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+              <div className="flex  flex-col py-5 gap-4">
+                <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
                   <div className="flex items-center p-2">
                     <img src={phone} width={35} height={35} className="h-8" />
-                    <p className="pl-4 text-sm font-medium text-nowrap">
+                    <p className="pl-4 text-sm font-medium md:text-nowrap">
                       Show Phone Number
                     </p>
                   </div>
                 </div>
-                <div className="border-1 border mx-4 border-blue-700 px-8 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500  flex justify-between rounded-xl ">
+                <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500  flex justify-between rounded-xl ">
                   <div className="flex items-center p-2">
                     <img
                       src={whatsapp}
@@ -282,7 +328,7 @@ const CarsDetail = () => {
                     </p>
                   </div>
                 </div>
-                <div className="border-1 border mx-4 border-blue-700 px-8 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+                <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
                   <div className="flex items-center p-2">
                     <img src={email} width={35} height={35} className="h-8" />
                     <p className="pl-4 text-sm font-medium text-nowrap">
@@ -293,18 +339,18 @@ const CarsDetail = () => {
               </div>
             </div>
             <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 flex flex-col shadow-xl shadow-blue-500/50 ">
-              <div className="flex flex-col gap-2 p-4">
-                <h1 className="text-blue-800 text-left py-2 text-3xl font-normal">
+              <div className="flex flex-col gap-2 md:p-4 p-2">
+                <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-normal">
                   {" "}
                   Location
                 </h1>
-                <h2 className="text-blue-800 text-lg text-nowrap">
+                <h2 className="text-blue-800 md:text-lg text-nowrap">
                   Al Murar, Dubai, UAE
                 </h2>
               </div>
               <div className="h-60">
                 <iframe
-                  className="rounded-xl map px-4 p-4"
+                  className="rounded-xl map md:px-4 md:p-4"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13603.897520700484!2d74.3641293!3d31.5248636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2996ebf1e1c519!2sX-EFFECTIVE!5e0!3m2!1sen!2s!4v1646999703464!5m2!1sen!2s"
                   width="100%"
                   height="100%"
@@ -322,11 +368,11 @@ const CarsDetail = () => {
         </section>
       </>
 
-      <section className="my-8 w-[85%]  mx-auto">
+      <section className="my-8 lg:w-[85%] w-[96%]  mx-auto">
         <h1 className="text-blue-800 text-2xl my-4 text-left  font-bold">
           Similar Ads
         </h1>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
           <CarCard />
         </div>
         <div className="flex justify-center pt-5 my-5">
@@ -338,16 +384,24 @@ const CarsDetail = () => {
       <div className="bg-sky-100 my-4">
         <div className="w-11/12 flex justify-between mx-auto">
           <div>
-            <img className="p-4 mt-5" height={115} width={145} src={Logo}></img>
-            <h1 className="text-blue-800 border-l-4 font-bold pl-4 border-blue-800 text-4xl mt-10 text-left">
+            <img
+              className="p-4 sm:mt-5 ld:w-[80%] w-[60%]"
+              height={115}
+              width={145}
+              src={Logo}
+            ></img>
+            <h1 className="text-blue-800 border-l-4 font-bold sm:pl-4 pl-2 border-blue-800 lg:text-4xl sm:text-2xl lg:mt-10 text-left">
               Sell Your Car In Best Price <br /> At Cars.Me
             </h1>
-            <div className="flex pt-5 my-5">
+            <div className="flex lg:pt-5 my-5">
               <p className="px-4 py-2 bg-gradient-blue">Register Your Cars</p>
             </div>
           </div>
-          <div className="w-1/2 ease-in-out duration-300  flex justify-end">
-            <img src={Car} />
+          <div className="sm:w-1/2 w-[60%] flex justify-end">
+            <img
+              src={car}
+              className="ease-in-out object-scale-down duration-500"
+            />
           </div>
         </div>
       </div>

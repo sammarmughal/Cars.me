@@ -11,7 +11,7 @@ function Footer() {
     <>
     <div className="h-8 w-full bg-gradient-to-b from-blue-700 to-cyan-500"></div>
       <div className="bg-sky-100">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 py-10 mx-auto justify-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 px-4 py-10 mx-auto justify-center">
         <div className="sm:ml-10 items-center lg:block lg:col-span-1 sm:col-span-3 flex">
           <div className="ml-5">
             <img className="lg:p-4" height={115} width={155} src={Logo}></img>
@@ -23,7 +23,7 @@ function Footer() {
             aliquip ex ea commodo consequat.{" "}
           </p>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto w-[75%]">
           <h2 className="text-xl text-blue-800 sm:text-2xl  font-semibold py-5 mt-3  md:mt-0">
             Quick Links
           </h2>
@@ -54,15 +54,15 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className="mx-auto lg:mx-0">
-          <h2 className="text-xl text-left ml-6  sm:text-2xl text-blue-800 font-semibold py-5 mt-3 md:mt-0">
+        <div className="mx-auto lg:mx-0 w-[75%] sm:w-full">
+          <h2 className="text-xl text-left sm:ml-6  sm:text-2xl text-blue-800 font-semibold py-5 mt-3 md:mt-0">
             Get In Touch{" "}
           </h2>
 
           <div className="flex-1">
             <div className="block my-4 lg:ml-4 mx-auto">
               <div className="flex gap-3 items-center my-6">
-                <img src={location} className="w-7 h-8" />
+                <img src={location} className="object-contain w-7 h-8" />
                 <p className="mt-1 text-left flex sm:text-base text-sm">
                   Office 1707, Park Lane Tower, <br></br>
                   Business Bay, Dubai, UAE
@@ -70,13 +70,13 @@ function Footer() {
               </div>
 
               <div className="flex gap-3 items-center my-6">
-                <img src={phone} className="w-7 h-7" />
+                <img src={phone} className="object-contain w-7 h-7" />
                 <p className="text-base">
                   <Link  to="#"> Phone: +971 4 333 1005</Link>
                 </p>
               </div>
               <div className="flex gap-3 items-center my-6">
-                <img src={email} className="w-7 h-7" />
+                <img src={email} className="object-contain w-7 h-7" />
                 <p className="text-base">
                   <Link to="#"> Email: info@imperial.me</Link>
                 </p>
@@ -84,7 +84,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="sm:mx-0 mx-auto">
+        <div className="sm:mx-0 mx-auto  w-[75%] sm:w-full">
               <h2 className="text-xl sm:text-2xl py-5 mt-3 text-left text-blue-800 font-semibold">
                 Subscribe
               </h2>

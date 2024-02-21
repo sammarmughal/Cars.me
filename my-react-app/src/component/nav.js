@@ -121,13 +121,15 @@ function Nav() {
                   style={{ backgroundColor: "#01b7eebd" }}
                 >
                   <Link to="/cars">
-                    <li className="text-white px-2 py-1 hover:bg-cyan-500 cursor-pointer" onClick={() => {setActiveNavItem('cars')}}>
+                    <li className="text-white px-2 rounded-t-xl py-1 hover:bg-cyan-500 cursor-pointer" onClick={() => {setActiveNavItem('cars')}}>
                       Cars
                     </li>
                   </Link>
+                  <Link to="/NewCar">
                   <li className="text-white px-2 py-1 border-b border-white pb-1 mx-3 hover:bg-cyan-500 cursor-pointer">
                     New Cars
                   </li>
+                  </Link>
                   <li className="text-white px-2 py-1 border-b border-white pb-1 mx-3 hover:bg-cyan-500 cursor-pointer">
                     Used Cars
                   </li>
@@ -192,7 +194,7 @@ function Nav() {
                       type="email"
                       placeholder="Phone Number Or E-mail"
                       name="email"
-                      className="form-control rounded-lg block w-full my-3 shadow-lg shadow-blue-500/50 p-4 text-base font-normal leading-6 text-gray-800  focus:ring ring-1 ring-blue-800 ring-offset-0  transition duration-150 ease-in-out"
+                      className="form-control rounded-lg block w-full my-3 shadow-lg shadow-blue-500/50 p-4 text-base font-normal leading-6 text-gray-800  focus:outline-none focus:ring ring-0 ring-blue-800 ring-offset-0  transition duration-150 ease-in-out"
                       style={{ border: "0px" }}
                       value={formValues.email}
                       onChange={handleChange}
@@ -204,7 +206,7 @@ function Nav() {
                       type="password"
                       placeholder="Password"
                       name="password"
-                      className="form-control rounded-lg block w-full p-4 my-4 shadow-lg shadow-blue-500/50 text-base font-normal leading-6 text-gray-800  focus:ring ring-1 ring-blue-800 ring-offset-0  transition duration-150 ease-in-out"
+                      className="form-control rounded-lg block w-full p-4 my-4 shadow-lg shadow-blue-500/50 text-base font-normal leading-6 text-gray-800  focus:outline-none   focus:ring ring-0 ring-blue-800 ring-offset-0  transition duration-150 ease-in-out"
                       style={{ border: "0px" }}
                       value={formValues.password}
                       onChange={handleChange}

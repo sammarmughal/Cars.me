@@ -38,7 +38,7 @@ function SellerBenefits() {
       <div className="bg-sky-100 my-4">
         <div className="w-11/12  flex-col  mx-auto">
           <div className="flex mt-6 py-8  justify-center items-center">
-            <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 lg:text-4xl sm:text-3xl text-xl text-center font-bold">
+            <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4text-center font-bold">
               Benefits for Sellers
             </h1>
           </div>
