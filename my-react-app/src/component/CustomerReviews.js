@@ -13,7 +13,7 @@ const CustomerReviews = () => {
   const ReviewCard = () => {
     return (
       <>
-        <div className="bg-white rounded-3xl shadow-lg hover:shadow-inner shadow-blue-500/50">
+        <div className="bg-white max-w-[540px] rounded-3xl shadow-lg hover:shadow-inner ">
           <div className="flex justify-center p-6">
             <img className="rounded-b-2xl" src={bilal}></img>
           </div>
@@ -47,13 +47,13 @@ const CustomerReviews = () => {
 
   return (
     <>
-      <div className="w-11/12 mx-auto  my-10">
+      <div className="w-11/12 mx-auto max-w-[1800px] my-10">
         <div className="flex justify-center py-4 items-center">
           <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 lg:text-4xl sm:text-3xl text-xl text-center font-bold">
             Customer Reviews
           </h1>
         </div>
-        <div className="md:grid grid-cols-3 hidden  my-6 gap-5">
+        <div className="md:grid grid-cols-3  hidden  my-6 gap-5">
           <ReviewCard />
           <ReviewCard />
           <ReviewCard />

@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../images/HomepageAssets/cars.png";
+import Logo from "../images/HomepageAssets/logo.png";
 import phone from "../images/HomepageAssets/phone.png";
 import email from "../images/HomepageAssets/email.png";
 import location from "../images/HomepageAssets/location.png";
@@ -11,44 +11,44 @@ function Footer() {
     <>
     <div className="h-8 w-full bg-gradient-to-b from-blue-700 to-cyan-500"></div>
       <div className="bg-sky-100">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 px-4 py-10 mx-auto justify-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 px-4 py-10 max-w-[1800px]  mx-auto justify-center">
         <div className="sm:ml-10 items-center lg:block lg:col-span-1 sm:col-span-3 flex">
           <div className="ml-5">
-            <img className="lg:p-4" height={115} width={155} src={Logo}></img>
+            <Link to="/"><img className="lg:p-4" height={115} width={155} src={Logo}></img></Link>
           </div>
-          <p className="pl-10 lg:w-[100%] w-[50%]  flex items-center text-left">
+          <p className="pl-10 lg:w-[100%] w-[50%] btn-text flex items-center text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.{" "}
           </p>
         </div>
-        <div className="mx-auto w-[75%]">
+        <div className="mx-auto lg:w-[60%] w-[75%]">
           <h2 className="text-xl text-blue-800 sm:text-2xl  font-semibold py-5 mt-3  md:mt-0">
             Quick Links
           </h2>
           <div className="flex flex-col space-y-1 sm:space-y-1 my-6 text-sm text-left  no-underline sm:text-base">
-            <Link to="#">
+            <Link to="/">
               <span className="hover:text-blue-600 hover:underline">Home </span>
             </Link>
-            <Link to="#">
-              <span className="hover:text-blue-600 hover-underline">Cars</span>
+            <Link to="/cars">
+              <span className="hover:text-blue-600 hover:underline">Cars</span>
             </Link>
-            <Link to="#">
-              <span className="hover:text-blue-600 hover-underline">
+            <Link to="/NewCars">
+              <span className="hover:text-blue-600 hover:underline">
                 New Cars
               </span>
             </Link>
-            <Link to="#">
-              <span className="hover:text-blue-600 hover-underline">
+            <Link to="/UsedCars">
+              <span className="hover:text-blue-600 hover:underline">
                 Used cars
               </span>
             </Link>
-            <Link to="#">
-              <span className="hover:text-blue-600 hover-underline">Blog</span>
+            <Link to="/blog">
+              <span className="hover:text-blue-600 hover:underline">Blog</span>
             </Link>
-            <Link to="#">
-              <span className="hover:text-blue-600 hover-underline">
+            <Link to="/HowItWorks">
+              <span className="hover:text-blue-600 hover:underline">
                 How It Works
               </span>
             </Link>
@@ -109,7 +109,7 @@ function Footer() {
         </div>
         </div>
         <div className="flex justify-center pb-4">
-            <p className="text-center">© Copyrights 2024 <span className="text-red-600">Cars.  </span><span className="text-blue-700">me</span> - All rights <br/> reserved.</p>
+            <p className="text-center">© Copyrights 2024 <Link to="/"> <span className="text-red-600">Cars.  </span><span className="text-blue-700">me</span></Link> - All rights <br/> reserved.</p>
         </div>
       </div>
     </>

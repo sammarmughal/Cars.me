@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const PageIndicator = ({
   pagerState,
-  indicatorCount = 6,
+  indicatorCount = 10,
   indicatorSize = '16px',
   space = '8px',
   activeColor = '#0033FF',
@@ -32,15 +32,15 @@ const PageIndicator = ({
   }, [currentItem, indicatorSize, space, orientation]);
 
   const isLeftEdgeItem = index =>
-    index <= currentItem - indicatorCount / 5 &&
-    currentItem > indicatorCount / 5 &&
+    index <= currentItem - indicatorCount / 9 &&
+    currentItem > indicatorCount / 9 &&
     index < pagerState.pageCount - indicatorCount + 1;
 
   const isRightEdgeItem = index =>
-    (currentItem < indicatorCount / 5 &&
+    (currentItem < indicatorCount / 9 &&
       index >= indicatorCount - 1) ||
-    (currentItem >= indicatorCount / 5 &&
-      index >= currentItem + indicatorCount / 5 &&
+    (currentItem >= indicatorCount / 9 &&
+      index >= currentItem + indicatorCount / 9 &&
       index < pagerState.pageCount - indicatorCount + 1);
 
   return (

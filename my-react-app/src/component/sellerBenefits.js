@@ -6,43 +6,24 @@ import speaker from "../images/HomepageAssets//marketing-mail-svgrepo-com.png";
 import box from "../images/HomepageAssets/Page-2.png";
 import support from "../images/HomepageAssets/support-svgrepo-com.png";
 import insights from "../images/HomepageAssets/brand-buzzfeed-svgrepo-com.png";
+import BenefitCard from "./BenefitCard";
 function SellerBenefits() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const handleDotClick = (newPage) => {
     setCurrentPage(newPage);
   };
-  const BenefitCard = (props) => {
-    return (
-      <>
-        <div className="bg-white hover:shadow-lg border border-slate-400 rounded-xl p-4">
-          <div className="flex justify-center mt-[-28px] h-20">
-            <img
-              src={props.src}
-              className="flex object-contain justify-center w-2/5 h-auto"
-              height={100}
-              style={{ marginTop: "-4rem" }}
-            ></img>
-          </div>
-          <h1 className="text-xl text-blue-800 mt-4 py-2 text-center font-bold">
-            {props.title}
-          </h1>
-          <p className="text-center text-blue-800 py-2">{props.description}</p>
-        </div>
-      </>
-    );
-  };
-
+ 
   return (
     <>
       <div className="bg-sky-100 my-4">
-        <div className="w-11/12  flex-col  mx-auto">
+        <div className="w-11/12 max-w-[1800px]  flex-col  mx-auto">
           <div className="flex mt-6 py-8  justify-center items-center">
-            <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4text-center font-bold">
+            <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4  lg:text-4xl sm:text-3xl text-xl  text-center font-bold">
               Benefits for Sellers
             </h1>
           </div>
-          <div className="sm:grid hidden lg:grid-cols-3 sm:grid-cols-2  py-20 mx-8 my-6 gap-x-5 gap-y-28">
+          <div className="sm:grid hidden lg:grid-cols-3 sm:grid-cols-2 justify-center  py-20 mx-8 my-6 gap-x-5 gap-y-28">
             <BenefitCard
               src={blueCar}
               height={123}
