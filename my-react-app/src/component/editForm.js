@@ -17,7 +17,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import {} from "react-router-dom";
 
-export const Edit_form = ({serial_no, slug}) => {
+export const Edit_form = () => {
   const countries = defaultCountries.filter((country) => {
     const { iso2 } = parseCountry(country);
     return ["ae"].includes(iso2);
@@ -36,15 +36,16 @@ export const Edit_form = ({serial_no, slug}) => {
   const [selectedCondition, setSelectedCondition] = useState("");
   const [engine_capacity, setEngine_capacity] = useState({});
   const [features, setFeatures] = useState([]);
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [make, setMake] = useState([]);
   const [state, setState] = useState([]);
   const [selectedStateId, setSelectedStateId] = useState("");
+  // const [stateOptions, setStateOptions] = useState([]);
   const [city, setCity] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedMakeId, setSelectedMakeId] = useState("");
   const [make_model, setMake_model] = useState([]);
   const [selectedModelId, setSelectedModelId] = useState("");
-  const [selectedFeatures, setSelectedFeatures] = useState([]);
   //   const [images, setImages] = useState([]);
   //   const [imageFiles, setImageFiles] = useState([]);
   //   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -110,42 +111,92 @@ export const Edit_form = ({serial_no, slug}) => {
   };
   const handleMakeChange = (selectedOption) => {
     setSelectedMakeId(selectedOption.value);
+    setFormData({
+      ...formData,
+      make: selectedOption.label,
+    });
     setMake_model(null);
   };
   const handleMake_ModelChange = (selectedOption) => {
     setSelectedModelId(selectedOption.value);
+    setFormData({
+      ...formData,
+      make_model: selectedOption.label,
+    });
     console.log(`Model selected:`, selectedOption);
   };
-  const handleStateChange = (selectedOption, actionMeta) => {
+  const handleStateChange = (selectedOption) => {
     setSelectedStateId(selectedOption.value);
     setFormData({
       ...formData,
-      [actionMeta.name]: selectedOption.value,
+      state: selectedOption.value,
     });
     setCity(null);
   };
   const handleCityChange = (selectedOption) => {
     setSelectedCity(selectedOption.value);
+    setFormData({
+      ...formData,
+      city: selectedOption.label,
+    });
     console.log(`City selected:`, selectedOption);
   };
   const handleTransmissionChange = (selectedOption) => {
     setSelectedTransmission(selectedOption.value);
+    setFormData({
+      ...formData,
+      transmission: selectedOption.label,
+    });
     console.log(`Transmission selected:`, selectedOption);
   };
   const handleAssemblyChange = (selectedOption) => {
     setSelectedAssembly(selectedOption.value);
+    setFormData({
+      ...formData,
+      assembly: selectedOption.label,
+    });
     console.log(`Assembly selected:`, selectedOption);
   };
   const handleConditionChange = (selectedOption) => {
     setSelectedCondition(selectedOption.value);
+    setFormData({
+      ...formData,
+      condition: selectedOption.label,
+    });
     console.log(`Condition selected:`, selectedOption);
   };
   const handleEngineTypeChange = (selectedOption) => {
     setSelectedEngine_types(selectedOption.value);
+    setFormData({
+      ...formData,
+      engine_type: selectedOption.label,
+    });
     console.log(`Engine selected:`, selectedOption);
   };
   const handleYearChange = (selectedOption) => {
     setSelectedYear(selectedOption.value);
+    setFormData({
+      ...formData,
+      year: selectedOption.label,
+    });
+  };
+  const handleAreaChange = (event) => {
+    setArea(event.target.value);
+  };
+  const handleVariantChange = (event) => {
+    setVariant(event.target.value);
+  };
+  const handleMileagechange = (event) => {
+    setMileage(event.target.value);
+  };
+  const handleExterior_colorChange = (event) => {
+    setExterior_color(event.target.value);
+  };
+  const handleEngine_capacityChange = (event) => {
+    setEngine_capacity(event.target.value);
+  };
+  const handledescriptionChange = (event) => {
+    setDescription(event.target.value);
   };
   const currentYear = new Date().getFullYear();
   const yearOptions = Array.from(
@@ -162,8 +213,8 @@ export const Edit_form = ({serial_no, slug}) => {
   let stateOptions = [];
   if (state) {
     stateOptions = state.map((states) => ({
-      value: states.id,
-      label: states.name,
+      value: states.name,
+      label: states.id,
     }));
   }
   let conditionsOptions = [];
@@ -354,7 +405,7 @@ export const Edit_form = ({serial_no, slug}) => {
 
     fetchData(); // Call the fetchData function when the component mounts
   }, []);
-
+  const { slug, serial_no } = useParams();
   console.log(serial_no, slug);
   useEffect(() => {
     const fetchData = async () => {
@@ -370,48 +421,68 @@ export const Edit_form = ({serial_no, slug}) => {
           throw new Error("Failed to fetch data");
         }
         const result = await response.json();
-        // Extract the description from the result and set it in state
-        setFormData({
-          ...formData,
-          description: result.data.description || "",
-          transmission: result.data.transmission || "",
-          state: result.data.state || "",
-          mobile_no: result.data.mobile_no || "",
-          condition: result.data.condition || "",
-          engine_type: result.data.engine_type || "",
-          features: result.data.features || "",
-          make: result.data.make || "",
-          city: result.data.city || "",
-          make_model: result.data.make_model || "",
-          area: result.data.area || "",
-          assembly: result.data.assembly || "",
-          variant: result.data.variant || "",
-          price: result.data.price || "",
-          mileage: result.data.mileage || "",
-          exterior_color: result.data.exterior_color || "",
-          engine_capacity: result.data.engine_capacity || "",
-          year: result.data.year || "",
+        setErrors({
+          transmission: null,
+          state: null,
+          mobile_no: null,
+          condition: null,
+          engine_type: null,
+          features: null,
+          make: null,
+          city: null,
+          make_model: null,
+          area: null,
+          assembly: null,
+          variant: null,
+          price: null,
+          mileage: null,
+          exterior_color: null,
+          description: null,
+          engine_capacity: null,
+          year: null,
+          // Add any other error fields if needed
         });
+        // Extract the description from the result and set it in state
+        setSelectedFeatures(result.data.postAds.features || []);
+        setArea(result.data.postAds.area || "");
+        setVariant(result.data.postAds.variant || "");
+        setMileage( result.data.postAds.mileage || "");
+        setExterior_color(result.data.postAds.exterior_color || "");
+        setEngine_capacity(result.data.postAds.engine_capacity || "")
+        setDescription(result.data.postAds.description || "")
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          description: result.data.postAds.description || "",
+          transmission: result.data.postAds.transmission || "",
+          state: result.data.postAds.state || "",
+          mobile_no: result.data.postAds.mobile_no || "",
+          condition: result.data.postAds.condition || "",
+          engine_type: result.data.postAds.engine_type || "",
+          features: result.data.postAds.features || [],
+          make: result.data.postAds.make || "",
+          city: result.data.postAds.city || "",
+          make_model: result.data.postAds.make_model || "",
+          area: result.data.postAds.area || "",
+          assembly: result.data.postAds.assembly || "",
+          variant: result.data.postAds.variant || "",
+          price: parseFloat(result.data.postAds.price.replace(/,/g, "")) || 0,
+          mileage: result.data.postAds.mileage || "",
+          exterior_color: result.data.postAds.exterior_color || "",
+          engine_capacity: result.data.postAds.engine_capacity || "",
+          year: result.data.postAds.year || "",
+        }));
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchData(); // Call the fetchData function when the component mounts
+    fetchData();
   }, [slug]);
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+
   const location = useLocation();
   //   const ad = location.state.ad;
   async function handleEditPostAd(event) {
-    if (event) {
       event.preventDefault();
-    }
     setLoading(true);
     setErrors({});
     setHasScrolled(false);
@@ -472,6 +543,7 @@ export const Edit_form = ({serial_no, slug}) => {
             throw new Error("Network response was not ok");
           }
         } else {
+          setErrors({});
           const result = await response.json();
           console.log(result);
           setSubmitted(true);
@@ -479,12 +551,13 @@ export const Edit_form = ({serial_no, slug}) => {
           navigate(`/carDetail/${result.data.postAd.slug}`);
           setMessage(result.message);
           setHasScrolled(false);
+          return result;
         }
       })
-      .then((result) => {
-        console.log(result);
-        setLoading(false);
-      })
+      // .then((result) => {
+      //   console.log(result);
+      //   setLoading(false);
+      // })
       .catch((error) => {
         console.error(error);
         setErrors({ api: error.message });
@@ -524,7 +597,7 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleMakeChange}
               options={makeOptions}
               styles={customStyles}
-              value={formData.make}
+              value={{ value: formData.make, label: formData.make }}
               isSearchable
             />
             {errors.make && (
@@ -539,7 +612,7 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleMake_ModelChange}
               options={modelOptions}
               styles={customStyles}
-              value={formData.make_model}
+              value={{ value: formData.make_model, label: formData.make_model }}
               isSearchable
             />
             {errors.make_model && (
@@ -569,7 +642,7 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleCityChange}
               options={cityOptions}
               styles={customStyles}
-              value={formData.city}
+              value={{ value: formData.city, label: formData.city }}
               isSearchable={false}
             />
             {errors.city && (
@@ -584,10 +657,8 @@ export const Edit_form = ({serial_no, slug}) => {
                 onFocus={() => console.log("Element received focus")}
                 placeholder="Type"
                 styles={customStyles}
-                value={formData.area}
-                onChange={(e) => {
-                  setArea(e.target.value);
-                }}
+                value={area}
+                onChange={handleAreaChange}
                 className="w-full focus:outline-none px-4 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
               />
             </div>
@@ -603,10 +674,8 @@ export const Edit_form = ({serial_no, slug}) => {
                 onFocus={() => console.log("Element received focus")}
                 placeholder="Type"
                 styles={customStyles}
-                value={formData.variant}
-                onChange={(e) => {
-                  setVariant(e.target.value);
-                }}
+                value={variant}
+                onChange={handleVariantChange}
                 className="w-full focus:outline-none px-4 py-1.5 placeholder:text-[hsl(0, 0%, 50%)]"
               />
             </div>
@@ -622,10 +691,8 @@ export const Edit_form = ({serial_no, slug}) => {
                 placeholder="Type"
                 onFocus={() => console.log("Element received focus")}
                 styles={customStyles}
-                value={formData.mileage}
-                onChange={(e) => {
-                  setMileage(e.target.value);
-                }}
+                value={mileage}
+                onChange={handleMileagechange}
                 className="w-full focus:outline-none px-4 py-1.5"
               />
             </div>
@@ -641,10 +708,8 @@ export const Edit_form = ({serial_no, slug}) => {
                 placeholder="Type"
                 onFocus={() => console.log("Element received focus")}
                 styles={customStyles}
-                value={formData.exterior_color}
-                onChange={(e) => {
-                  setExterior_color(e.target.value);
-                }}
+                value={exterior_color}
+                onChange={handleExterior_colorChange}
                 className="w-full focus:outline-none px-4 py-1.5"
               />
             </div>
@@ -665,7 +730,10 @@ export const Edit_form = ({serial_no, slug}) => {
                 styles={customStyles}
                 value={formData.price}
                 onChange={(e) => {
-                  setPrice(e.target.value);
+                  setFormData({
+                    ...formData,
+                    price: parseFloat(e.target.value.replace(/,/g, "")) || "",
+                  });
                 }}
                 className="w-full focus:outline-none px-4 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
               />
@@ -682,7 +750,10 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleTransmissionChange}
               options={transmissionsOptions}
               styles={customStyles}
-              value={formData.transmission}
+              value={{
+                value: formData.transmission,
+                label: formData.transmission,
+              }}
               isSearchable={false}
             />
             {errors.transmission && (
@@ -697,7 +768,7 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleAssemblyChange}
               options={assemblyOptions}
               styles={customStyles}
-              value={formData.assembly}
+              value={{ value: formData.assembly, label: formData.assembly }}
               isSearchable={false}
             />
             {errors.assembly && (
@@ -713,7 +784,7 @@ export const Edit_form = ({serial_no, slug}) => {
               options={conditionsOptions}
               styles={customStyles}
               isSearchable={false}
-              value={formData.condition}
+              value={{ value: formData.condition, label: formData.condition }}
             />
             {errors.condition && (
               <span className="error text-red-500">{errors.condition}</span>
@@ -728,7 +799,10 @@ export const Edit_form = ({serial_no, slug}) => {
               options={engineTypeOptions}
               styles={customStyles}
               isSearchable={false}
-              value={formData.engine_type}
+              value={{
+                value: formData.engine_type,
+                label: formData.engine_type,
+              }}
             />
             {errors.engine_type && (
               <span className="error text-red-500">{errors.engine_type}</span>
@@ -743,10 +817,8 @@ export const Edit_form = ({serial_no, slug}) => {
                 onFocus={() => console.log("Element received focus")}
                 type="number"
                 styles={customStyles}
-                value={formData.engine_capacity}
-                onChange={(e) => {
-                  setEngine_capacity(e.target.value);
-                }}
+                value={engine_capacity}
+                onChange={handleEngine_capacityChange}
                 className="w-full focus:outline-none px-4 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
               />
             </div>
@@ -764,7 +836,7 @@ export const Edit_form = ({serial_no, slug}) => {
               onChange={handleYearChange}
               options={yearOptions}
               styles={customStyles}
-              value={formData.year}
+              value={{ value: formData.year, label: formData.year }}
               isSearchable
             />
             {errors.year && (
@@ -780,10 +852,8 @@ export const Edit_form = ({serial_no, slug}) => {
               id="description"
               placeholder="Message"
               rows="8"
-              value={formData.description}
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
+              value={description}
+              onChange={handledescriptionChange}
               name="message"
               className="formInput css-dc7k1j-control w-full rounded-md px-4 py-4 focus:outline-none focus:shadow-lg text-sm pt-2.5 outline-[#007bff]"
             ></textarea>
@@ -878,7 +948,7 @@ export const Edit_form = ({serial_no, slug}) => {
                       <input
                         type="checkbox"
                         onFocus={() => console.log("Element received focus")}
-                        value={formData.features}
+                        value={feature}
                         checked={selectedFeatures.includes(feature)}
                         onChange={() => handleFeatureChange(feature)}
                       />

@@ -423,11 +423,13 @@ console.log(slug);
                             </div>
                           </div>
                           <div className="flex flex-row p-2 gap-4 justify-end items-center">
-                            <div onClick={() => handleEditForm(ad.serial_no , ad.slug)}>
+                            <Link to={`/editpostad/${ad.slug}/${ad.serial_no}`}
+                            // onClick={() => handleEditForm(ad.serial_no , ad.slug)}
+                            >
                               <button className="save-btn px-6 font-medium">
                                 Edit
                               </button>
-                            </div>
+                            </Link>
                             <div>
                               <button
                                 onClick={() => handleDelete(ad.serial_no)}
@@ -460,7 +462,7 @@ console.log(slug);
                 </div>
               )}
             </div>
-            <div
+            {/* <div
               className={`flex absolute overflow-y-auto h-full scroll z-50 popup p-3 ${
                 editForm ? "open" : ""
               }`}
@@ -476,7 +478,7 @@ console.log(slug);
                   <Edit_form serial_no={serial_no} slug={slug}/>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
