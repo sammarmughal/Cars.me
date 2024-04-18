@@ -75,9 +75,9 @@ function UsedCars() {
         </section>
         <section className="bg-sky-100">
           <div className="max-w-[1800px] mx-auto">
-            <div className="flex justify-center mx-auto sm:w-2/3 w-11/12 py-5">
-              <img src={banner} />
-            </div>
+          <a href="https://spareparts.me/" className="flex justify-center mx-auto w-2/3 py-5 cursor-pointer" target="_blank" rel="noopener noreferrer">
+            <img src={banner} />
+          </a>
             <div className="flex justify-center py-4 items-center">
               <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 lg:text-4xl sm:text-3xl text-xl text-center font-bold">
                 New Featured Car{" "}
@@ -140,7 +140,7 @@ function UsedCars() {
                 <img src={Chery} className="object-contain" />
               </Link>
             </div>
-            <div className="bg-white flex items-center justify-center w-full rounded-xl p-3 shadow-xl hover:shadow-inner">
+            <div className="bg-white flex items-center justify-center w-full rounded-xl p-5 shadow-xl hover:shadow-inner">
               <Link to="/brands-internal">
                 <img src={FAW} className="object-contain" /></Link>
             </div>

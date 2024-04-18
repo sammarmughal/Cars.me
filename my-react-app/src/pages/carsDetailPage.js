@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, } from "react";
 import Nav from "../component/nav";
 import Footer from "../component/footer";
 import CarCard from "../component/usedCarCard";
 import CustomerReviews from "../component/CustomerReviews";
 import Logo from "../images/HomepageAssets/logo.png";
 import banner from "../images/CarsDetailPageAssets/BANNER.png";
-import Mercedes from "../images/CarsDetailPageAssets/Mercedes.png";
 import mercedes from "../images/CarsDetailPageAssets/mercedes-small.png";
 import calendar from "../images/HomepageAssets/calender-svgrepo-com.png";
 import meter from "../images/HomepageAssets/meter-free-2-svgrepo-com.png";
@@ -19,33 +18,56 @@ import email from "../images/CarsDetailPageAssets/email.png";
 import car from "../images/HomepageAssets/car.png";
 import whatsapp from "../images/CarsDetailPageAssets/whatsapp-svgrepo-com.png";
 import stars from "../images/CarsDetailPageAssets/stars.png";
+import ContentLoader from "react-content-loader";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const CarsDetail = () => {
-  // const { id } = useParams();
-  // const [carDetail, setCarDetail] = useState(null);
+  const { slug } = useParams();
+  const [carDetail, setCarDetail] = useState(null);
+  const [selectImage, setSelectedImage] = useState(null);
 
-  // useEffect(() => {
-  //   fetch(`http://127.0.0.1:8000/api/car/${id}`)
-  //     .then((response) => response.json())
-  //     .then((car) => {
-  //       setCarDetail(car);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching car detail:", error);
-  //     });
-  // }, [id]);
+  useEffect(() => {
+    fetch(`https://sandbox.cars.me/api/used-cars/${slug}`)
+      .then((response) => response.json())
+      .then((car) => {
+        console.log('Car details:', car);
+        setCarDetail(car);
+        if (car && car.data && car.data.postAds && car.data.postAds.images && car.data.postAds.images.length > 0) {
+          setSelectedImage(car.data.postAds.images[0]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching car detail:", error);
+      });
+  }, [slug]);
 
-  // if (!carDetail) {
-  //   return <p>Loading...</p>;
-  // }
+  if (!carDetail) {
+    return <ContentLoader
+      speed={2}
+      width={350}
+      height={475}
+      viewBox="0 0 350 475"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+    >
+      <rect x="0" y="0" rx="10" ry="10" width="350" height="200" />
+      <rect x="20" y="220" rx="0" ry="0" width="200" height="20" />
+      <rect x="20" y="250" rx="0" ry="0" width="120" height="20" />
+      <rect x="20" y="290" rx="0" ry="0" width="80" height="20" />
+      <rect x="20" y="330" rx="0" ry="0" width="80" height="20" />
+      <rect x="20" y="370" rx="0" ry="0" width="80" height="20" />
+      <rect x="20" y="410" rx="0" ry="0" width="80" height="20" />
+      <rect x="20" y="450" rx="0" ry="0" width="80" height="20" />
+    </ContentLoader>;
+  }
 
   return (
     <>
       <section className="max-w-[1800px] mx-auto">
 
         <Nav></Nav>
-        <section className="bg-sky-100">
+        {/* <section className="bg-sky-100">
           <div className="flex justify-center opacity-50 pt-6">
             <img src={Logo} className="w-1/5" height={300} width={350} />
           </div>
@@ -67,33 +89,86 @@ const CarsDetail = () => {
               Search
             </button>
           </div>
-        </section>
-        <div className="flex justify-center mx-auto w-2/3 py-5 my-5">
+        </section> */}
+        <a href="https://spareparts.me/" target="_blank" rel="noopener noreferrer" className="flex justify-center mx-auto w-2/3 py-5 my-5">
           <img src={banner} />
-        </div>
+        </a>
         <>
-          <section className="lg:w-[85%] sm:w-[96%] mx-auto">
+          <section className="lg:w-[80%] sm:w-[90%] mx-auto">
             <div className="sm:block hidden">
               <h1 className="text-blue-800 font-medium text-2xl text-left py-2">
-                Volkswagen ID.5 2023
-
+                {carDetail.data.postAds.make} {carDetail.data.postAds.make_model} {carDetail.data.postAds.year}
               </h1>
               <p className="text-blue-800 text-left pb-2">
-                Posted 1 hour ago
+                Posted {carDetail.data.postAds.created_at}
               </p>
             </div>
-            <div className="flex gap-4">
-              <div className="sm:w-[75%] w-[96%] mx-auto">
-                <img src={Mercedes} className="rounded-xl w-full" />
+            <div className="flex gap-5 justify-between">
+              <div className="flex flex-col gap-4">
+                <div className="max-h-[415px] sm:w-[96%] mx-auto justify-center">
+                  {selectImage && <img src={selectImage} className="rounded-xl max-h-[415px] w-full h-auto object-fit" />}
+                </div>
+                <div className="flex flex-wrap mx-auto justify-center gap-5">
+                  {carDetail.data.postAds.images && carDetail.data.postAds.images.map((image, index) => (
+                    <img key={index} src={image} className={`rounded-xl sm:w-28 sm:h-28 w-24 h-24 flex cursor-pointer ${selectImage === image ? 'border-2 border-blue-500 rounded-lg' : ''}`} onClick={() => setSelectedImage(image)} alt={`Car Image ${index}`} />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-4 ">
+                  {/* You can render additional images here */}
+                </div>
               </div>
-              <div className="sm:flex flex-col hidden gap-4 w-[21%]">
-                <img src={mercedes} className="rounded-xl" />
-                <img src={mercedes} className="rounded-xl" />
-                <div className="relative">
-                  <img src={mercedes} className="rounded-xl" />
-                  <p className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center text-5xl bg-black text-white rounded-xl opacity-50">
-                    +25
-                  </p>
+              <div className="lg:flex hidden flex-col gap-5">
+                <div className="bg-white hover:shadow-inner w-full rounded-xl  p-4 sm:flex hidden flex-col shadow-xl  ">
+                  <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-normal">
+                    {" "}
+                    Price
+                  </h1>
+                  <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-bold cursor-pointer">
+                    AED {carDetail.data.postAds.price}
+                  </h1>
+                </div>
+                <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 hidden sm:flex flex-col shadow-xl  ">
+                  <div className="flex md:flex-row flex-col gap-3">
+                    <img src={bilal} className="" height={100} width={100} />
+                    <div className="flex flex-col  py-3 gap-3">
+                      <h2 className="text-blue-800 text-sm">
+                        Posted By:
+                        <span className="text-xs"> Bilal Motors LLC </span>
+                      </h2>
+                      <img src={stars} className="" height={100} width={100} />
+                    </div>
+                  </div>
+                  <div className="flex  flex-col py-5 gap-4">
+                    <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+                      <div className="flex items-center p-2 cursor-pointer">
+                        <img src={phone} width={35} height={35} className="h-8 object-contain" />
+                        <p className="pl-4 text-sm font-medium md:text-nowrap">
+                          {carDetail.data.postAds.mobile_no}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500  flex justify-between rounded-xl ">
+                      <div className="flex items-center p-2 cursor-pointer">
+                        <img
+                          src={whatsapp}
+                          width={35}
+                          height={35}
+                          className="h-8 object-contain"
+                        />
+                        <p className="pl-4 text-sm font-medium text-nowrap">
+                          What's App
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
+                      <div className="flex items-center p-2">
+                        <img src={email} width={35} height={35} className="h-8 object-contain" />
+                        <button className="pl-4 text-sm font-medium text-nowrap cursor-pointer">
+                          Send Enquiry{" "}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,16 +177,16 @@ const CarsDetail = () => {
             <div className="bg-white hover:shadow-inner rounded-xl w-full justify-around  my-10 p-2  flex flex-row shadow-xl ">
               <div className="block items-center">
                 <h1 className="text-blue-800 font-medium text-2xl text-left py-2">
-                  Volkswagen ID.5 2023
+                  {carDetail.data.postAds.make} {carDetail.data.postAds.make_model} {carDetail.data.postAds.year}
 
                 </h1>
                 <p className="text-blue-800 text-left pb-2">
-                  Posted 1 hour ago
+                  {carDetail.data.postAds.created_at}
                 </p>
               </div>
               <div className="flex items-start">
-                <h1 className="text-blue-800 text-left py-2 text-xl font-bold">
-                  AED 15000
+                <h1 className="text-blue-800 text-left py-2 text-xl font-bold cursor-pointer">
+                  AED {carDetail.data.postAds.price}
                 </h1>
               </div>
             </div>
@@ -161,14 +236,14 @@ const CarsDetail = () => {
                   <img src={calendar} />
                   <p className="text-red-600 py-2 text-lg">
                     {" "}
-                    2023
+                    {carDetail.data.postAds.year}
                   </p>
                 </div>
                 <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl  ">
                   <img src={meter} />
                   <p className="text-red-600 py-2 text-lg text-center">
                     {" "}
-                    15000 Km
+                    {carDetail.data.postAds.mileage} Km
                   </p>
                 </div>
                 <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl  ">
@@ -181,21 +256,21 @@ const CarsDetail = () => {
                 <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl  ">
                   <img src={engine} />
                   <p className="text-red-600 py-2 text-lg">
-                    1500cc
+                    {carDetail.data.postAds.engine_capacity}cc
                   </p>
                 </div>
                 <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl  ">
                   <img src={gearLiver} />
                   <p className="text-red-600 py-2 text-lg capitalize">
                     {" "}
-                    Automatic
+                    {carDetail.data.postAds.transmission}
                   </p>
                 </div>
                 <div className="bg-white hover:shadow-inner rounded-xl w-full justify-center items-center p-2 flex flex-col shadow-xl  ">
                   <img src={fireSvgrepo} />
                   <p className="text-red-600 py-2 text-lg capitalize">
                     {" "}
-                    Petrol
+                    {carDetail.data.postAds.engine_type}
                   </p>
                 </div>
               </div>
@@ -212,7 +287,7 @@ const CarsDetail = () => {
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Fuel Type</p>
-                      <p className="capitalize"></p>
+                      <p className="capitalize">{carDetail.data.postAds.engine_type}</p>
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Seller Type</p>
@@ -226,12 +301,12 @@ const CarsDetail = () => {
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Transmission Type</p>
-                      <p className="capitalize"> Automatic</p>
+                      <p className="capitalize"> {carDetail.data.postAds.transmission}</p>
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Engine Capacity</p>
                       <p className="capitalize">
-                        1500cc
+                        {carDetail.data.postAds.engine_capacity}cc
                       </p>
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
@@ -250,7 +325,7 @@ const CarsDetail = () => {
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Exterior Color</p>
-                      <p className="capitalize">Grey</p>
+                      <p className="capitalize">{carDetail.data.postAds.exterior_color}</p>
                     </div>
                     <div className="flex justify-between text-slate-600  pb-2 border-b border-slate-800">
                       <p>Warrenty</p>
@@ -263,13 +338,7 @@ const CarsDetail = () => {
                   </div>
                   <div className="text-right text-slate-600 text-sm px-5">
                     <p>
-                      Air Conditioning, AM/FM Radio, Climate Control, Leather
-                      <br />
-                      Seats, Navigation System, Power Locks, Power Mirrors, Power
-                      <br />
-                      Seats, Power Sunroof, Power Windows, Premium Sound System,
-                      <br />
-                      Rear View Camera, Sunroof
+                      {carDetail.data.postAds.features}
                     </p>
                   </div>
                   <div className="flex mx-5 pt-3 text-slate-600  pb-2 border-b border-slate-800">
@@ -283,28 +352,28 @@ const CarsDetail = () => {
                   Description{" "}
                 </h1>
                 <div className="text-left my-5 text-slate-600 text-sm">
-                  <p>- &#160;A car is a vehicle that has wheels, carries a small number of passengers, and is moved by an engine or a motor. Cars are also called automobiles or motor vehicles. Trucks and buses are motor vehicles as well.</p>
+                  <p>- &#160;{carDetail.data.postAds.description}</p>
                 </div>
                 <div className="flex items-end justify-end">
-                  <div className="bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center py-1 px-5 shadow-lg   justify-center text-white rounded-2xl ">
-                    <p className="text-center  flex items-center text-sm">
+                  <div className="cursor-pointer bg-gradient-to-b from-blue-700 to-cyan-500 flex items-center py-1 px-5 shadow-lg   justify-center text-white rounded-2xl ">
+                    <button className="text-center  flex items-center text-sm cursor-pointer">
                       See Full Description...{" "}
-                    </p>
+                    </button>
                   </div>
                 </div>
               </section>
             </div>
             <div className="sm:w-[30%] w-[96%] mx-auto flex flex-col gap-5">
-              <div className="bg-white hover:shadow-inner w-full rounded-xl  p-4 sm:flex hidden flex-col shadow-xl  ">
+              <div className="bg-white hover:shadow-inner w-full rounded-xl  p-4 lg:hidden sm:flex hidden flex-col shadow-xl  ">
                 <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-normal">
                   {" "}
                   Price
                 </h1>
-                <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-bold">
-                  AED 15000
+                <h1 className="text-blue-800 text-left py-2 md:text-3xl text-xl font-bold cursor-pointer">
+                  AED {carDetail.data.postAds.price}
                 </h1>
               </div>
-              <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 hidden sm:flex flex-col shadow-xl  ">
+              <div className="bg-white hover:shadow-inner w-full rounded-xl  p-3 hidden lg:hidden sm:flex flex-col shadow-xl  ">
                 <div className="flex md:flex-row flex-col gap-3">
                   <img src={bilal} className="" height={100} width={100} />
                   <div className="flex flex-col  py-3 gap-3">
@@ -317,15 +386,15 @@ const CarsDetail = () => {
                 </div>
                 <div className="flex  flex-col py-5 gap-4">
                   <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
-                    <div className="flex items-center p-2">
+                    <div className="flex items-center p-2 cursor-pointer">
                       <img src={phone} width={35} height={35} className="h-8 object-contain" />
                       <p className="pl-4 text-sm font-medium md:text-nowrap">
-                        Show Phone Number
+                        {carDetail.data.postAds.mobile_no}
                       </p>
                     </div>
                   </div>
                   <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500  flex justify-between rounded-xl ">
-                    <div className="flex items-center p-2">
+                    <div className="flex items-center p-2 cursor-pointer">
                       <img
                         src={whatsapp}
                         width={35}
@@ -340,9 +409,9 @@ const CarsDetail = () => {
                   <div className="border-1 border lg:mx-4 border-blue-700 lg:px-8 px-3 py-2 text-blue-800 hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 flex justify-between rounded-xl ">
                     <div className="flex items-center p-2">
                       <img src={email} width={35} height={35} className="h-8 object-contain" />
-                      <p className="pl-4 text-sm font-medium text-nowrap">
+                      <button className="pl-4 text-sm font-medium text-nowrap cursor-pointer">
                         Send Enquiry{" "}
-                      </p>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -369,9 +438,9 @@ const CarsDetail = () => {
                 </div>
               </div>
               <div className="flex items-center py-3 shadow-lg   justify-center bg-gradient-blue">
-                <p className="text-center flex items-center text-lg">
+                <button className="text-center flex items-center text-lg">
                   Report This Ad{" "}
-                </p>
+                </button>
               </div>
             </div>
           </section>

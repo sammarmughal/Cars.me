@@ -76,10 +76,10 @@ function Brands() {
                         <input
                             type="text"
                             placeholder="Search Brands"
-                            className="form-control rounded-l-lg block w-full p-2 sm:py-4 py-2 md:text-lg sm:text-sm text-xs font-normal px-4 bg-white leading-6 text-gray-800 focus:outline-none  focus:ring hover:ring focus:ring-blue-300 ring-offset-0  transition duration-150 ease-in-out"
+                            className="form-control rounded-l-lg block w-full p-2 sm:py-4 py-2 md:text-lg sm:text-sm text-xs font-normal px-4 bg-white leading-6 text-gray-800 focus:outline-none focus:ring hover:ring focus:ring-blue-300 ring-offset-0 transition duration-150 ease-in-out"
                             style={{ border: "0px" }}
                         />
-                        <button aria-label="Search" className="rounded-r-sm inline-block font-normal leading-6  select-none border-transparent py-2 px-4 text-base  transition duration-150 ease-in-out bg-gradient-to-b from-blue-700 to-cyan-500  font-semibold text-base  text-white">
+                        <button aria-label="Search" className="rounded-r-lg inline-block font-normal leading-6 select-none border-transparent py-2 px-4 text-base transition duration-150 ease-in-out bg-gradient-to-b from-blue-700 to-cyan-500 font-semibold text-base text-white">
                             <IoSearchOutline className="sm:w-8 sm:h-8 w-6 h-6 text-white" strokeWidth={2.5} />
                         </button>
                     </div>

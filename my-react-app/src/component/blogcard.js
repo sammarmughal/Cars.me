@@ -39,7 +39,7 @@ function BlogCard() {
                         <p className="text-slate-400">By Shahid Khan</p>
                     </div>
                     <div className='flex text-black py-2 rounded-xl items-center gap-2'>
-                        <div className='flex gap-2 items-center border border-slate-400 px-4 py-1 rounded-full'>
+                        <div className='flex gap-2 items-center border border-slate-400 px-4 py-1 rounded-full cursor-pointer'>
                             <IoMdShare />
                             <p>Share</p>
                         </div>

@@ -105,7 +105,7 @@ const CarCard = () => {
               Volkswagen ID.5 2023
             </h1>
             <div className="mt-1">
-              <p className="sm:px-4 px-2 rounded-xl text-red-600 bg-transparent whitespace-nowrap flex items-center btn-text border-1 border border-blue-500">
+              <p className="sm:px-4 px-2 cursor-pointer rounded-xl text-red-600 bg-transparent whitespace-nowrap flex items-center btn-text border-1 border border-blue-500">
                 9/10
               </p>
             </div>
@@ -139,7 +139,7 @@ const CarCard = () => {
           </div>
         </div>
         <div className="pb-3 pt-1 px-4 flex justify-between">
-          <h1 className="text-blue-800 text-left mb-2 font-bold sm:text-xl text-lg">
+          <h1 className="text-blue-800 text-left mb-2 font-bold sm:text-xl text-lg cursor-pointer">
             AED 1,95,000
           </h1>
           <svg

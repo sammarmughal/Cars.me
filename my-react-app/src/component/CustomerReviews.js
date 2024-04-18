@@ -48,7 +48,7 @@ const CustomerReviews = () => {
   return (
     <>
       <div className="w-11/12 mx-auto max-w-[1800px] my-10">
-        <div className="flex justify-center py-4 items-center">
+        {/* <div className="flex justify-center py-4 items-center">
           <h1 className="text-blue-800 border-l-4 border-blue-800 pl-4 lg:text-4xl sm:text-3xl text-xl text-center font-bold">
             Customer Reviews
           </h1>
@@ -75,10 +75,10 @@ const CustomerReviews = () => {
             className="my-4"
             onClick={handleDotClick}
           />
-        </div>
-        <div className="flex justify-center py-5 my-5">
-          <img src={banner} />
-        </div>
+        </div> */}
+        <a href="https://spareparts.me/" className="flex justify-center py-5 my-5" target="_blank" rel="noopener noreferrer">
+          <img src={banner} alt="banner" />
+        </a>
       </div>
     </>
   );

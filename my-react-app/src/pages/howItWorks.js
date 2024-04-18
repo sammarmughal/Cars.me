@@ -50,9 +50,9 @@ function HowItWorks() {
                 </div>
             </section>
             <section className="max-w-[1800px] mx-auto">
-                <div className="flex justify-center mx-auto sm:w-2/3 w-11/12 py-5">
+                <a href="https://spareparts.me/" className="flex justify-center cursor-pointer mx-auto sm:w-2/3 w-11/12 py-5"  target="_blank" rel="noopener noreferrer">
                     <img src={banner} />
-                </div>
+                </a>
                 <div>
                     <h1 className="text-blue-800 lg:text-4xl sm:text-3xl text-xl text-center font-bold">How To Sell Your Car On <Link to="/"> <span className="text-red-600">Cars.  </span><span className="text-blue-700">me</span></Link> ?</h1>
                     <p className="text-blue-800 text-center pt-3">Sell Your Car by following our 6 easy Steps:</p>

@@ -6,7 +6,7 @@ import car from "../images/HomepageAssets/car.png";
 function Register() {
     return (
         <>
-            <div className="bg-sky-100 my-4">
+            <div className="bg-sky-100 py-4">
                 <div className="w-11/12 max-w-[1800px]  flex justify-between mx-auto">
                     <div>
                         <Link to="/">

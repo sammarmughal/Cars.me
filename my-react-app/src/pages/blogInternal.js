@@ -103,7 +103,7 @@ function BlogInternal() {
                     <div className="w-full flex mt-4">
                         <div className="flex  bg-white gap-1 md:gap-4 rounded-full ">
                             <div className='flex px-2 text-black py-2 rounded-xl items-center gap-2'>
-                                <div className='flex gap-2 items-center border border-slate-400 px-4 py-1 rounded-full'>
+                                <div className='flex gap-2 items-center border border-slate-400 px-4 py-1 rounded-full cursor-pointer'>
                                     <IoMdShare />
                                     <p>Share</p>
                                 </div>
@@ -222,77 +222,77 @@ function BlogInternal() {
                             <img src={circle} className="sm:w-6 sm:h-6 w-4 h-4" />
                             <h1 className="text-blue-800 lg:text-4xl sm:text-3xl text-xl font-medium"> Popular Tags </h1>
                         </div>
-                        <div className="grid lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-x-3 gap-y-6 mx-4 my-10">
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                        <div className="grid lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-x-3 gap-y-6 mx-4 sm:mx-0 my-10">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Hybrid Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Petrol Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Diesel Cars
                             </a>
-                            <a className="px-3 flex text-nowrap text-xs justify-center  py-1 rounded-full text-blue-800 bg-transparent hover:text-white hover:bg-gradient-to-b hover:from-blue-700 hover:to-cyan-500 border-1 border border-cyan-500 ">
+                            <a className="popular-btn">
                                 Electric Cars
                             </a>
                         </div>

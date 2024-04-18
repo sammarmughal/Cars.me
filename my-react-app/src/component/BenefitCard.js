@@ -6,7 +6,7 @@ const BenefitCard = (props) => {
           <div className="flex justify-center mt-[-28px] h-20">
             <img
               src={props.src}
-              className="flex object-contain justify-center w-[35%] h-auto"
+              className="flex object-contain justify-center w-[24%] h-auto"
               height={100}
               style={{ marginTop: "-4rem" }}
             ></img>
