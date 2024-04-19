@@ -37,8 +37,6 @@ export const LoginPopup = ({ open, onClickLogin, onClickSignup, }) => {
     setLoading(true);
     setErrors({ email: "", password: "" });
     let data = { email, password };
-    console.log(data)
-
     try {
       const response = await fetch("https://sandbox.cars.me/api/login", {
         method: "POST",
@@ -73,12 +71,10 @@ export const LoginPopup = ({ open, onClickLogin, onClickSignup, }) => {
       }
 
       const result = await response.json();
-      console.log("result", result);
 
       if (result.data && result.data.access_token && result.data.user) {
         localStorage.setItem('user', JSON.stringify(result.data.user));
         localStorage.setItem('access_token', result.data.access_token);
-        console.log(result.data.user.name);
         navigate("/my-profile");
       } else if (result.errors) {
         setErrors(result.errors);
@@ -86,7 +82,6 @@ export const LoginPopup = ({ open, onClickLogin, onClickSignup, }) => {
 
       if (result.message) {
         setMessage(result.message);
-        console.log(message);
       }
 
       setEmail("");
@@ -292,7 +287,6 @@ export const SignupPopup = ({ open, onClickSignup, onClickLogin }) => {
     setLoading(true);
     setErrors({ name: "", email: "", password: "", password_confirmation: "" });
     let data = { name, email, password, password_confirmation };
-    console.log(data)
 
     try {
       const response = await fetch("https://sandbox.cars.me/api/register", {
@@ -329,14 +323,12 @@ export const SignupPopup = ({ open, onClickSignup, onClickLogin }) => {
       }
 
       const result = await response.json();
-      console.log("result", result);
       if (result.errors) {
         setErrors(result.errors);
       }
 
       if (result.message) {
         setMessage(result.message);
-        console.log(message);
         navigate("/");
 
       }
@@ -628,15 +620,12 @@ function Nav() {
     const userInfo = localStorage.getItem('user');
     if (userInfo) {
       const user = JSON.parse(userInfo);
-      setUserName(user.name);
-      console.log(userName);
-    }
+      setUserName(user.name);    }
 
   }, []);
 
   async function LogOut() {
     let token = localStorage.getItem('access_token');
-    console.log(token)
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');
 
@@ -674,13 +663,10 @@ function Nav() {
       }
 
       const result = await response.json();
-      console.log(result)
-      console.log('User logged out successfully');
       navigate('/');
       setIsLoggedIn(false);
       setUserName("");
     } catch (error) {
-      console.error('Logout failed:', error);
       setErrors(error);
     }
   }

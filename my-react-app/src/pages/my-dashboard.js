@@ -33,7 +33,6 @@ function UserPanel() {
     setSerial_no(serial_no); // Set the serial number in state
     setEditForm(true); // Open the edit form popup
   };
-console.log(slug);
   useEffect(() => {
     const storedState = localStorage.getItem("isHeartFilled");
     if (storedState !== null) {
@@ -74,7 +73,6 @@ console.log(slug);
         );
         setUserAds(filteredUserAds);
         setIsLoading(false);
-        console.log(result);
       })
       .catch((error) => {
         setError(error.message);

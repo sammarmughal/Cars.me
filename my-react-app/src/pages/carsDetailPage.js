@@ -31,7 +31,6 @@ const CarsDetail = () => {
     fetch(`https://sandbox.cars.me/api/used-cars/${slug}`)
       .then((response) => response.json())
       .then((car) => {
-        console.log('Car details:', car);
         setCarDetail(car);
         if (car && car.data && car.data.postAds && car.data.postAds.images && car.data.postAds.images.length > 0) {
           setSelectedImage(car.data.postAds.images[0]);

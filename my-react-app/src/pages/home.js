@@ -18,7 +18,6 @@ import Select from "react-select";
 import CustomerReviews from "../component/CustomerReviews";
 import SellerBenefits from "../component/sellerBenefits";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 function Home() {
   const Card = (props) => {
@@ -80,7 +79,6 @@ function Home() {
       </>
     );
   };
-  const dispatch = useDispatch();
   const [isDropdownCountryOpen, setIsDropdownCountryOpen] = useState(false);
   const [isDropdownBrandOpen, setIsDropdownBrandOpen] = useState(false);
   const [isDropdownTransmissionOpen, setIsDropdownTransmissionOpen] =
@@ -202,8 +200,6 @@ function Home() {
       });
     }
     const queryString = queryParams.toString();
-    dispatch({ type: "SET_FILTERS", payload: filters }); // Save the filters object in Redux
-    // sessionStorage.setItem('filters', JSON.stringify(filters)); // Save the filters object in sessionStorage
     navigate(`/usedcars?${queryString}`);
   };
   return (

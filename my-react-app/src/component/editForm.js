@@ -123,7 +123,6 @@ export const Edit_form = () => {
       ...formData,
       make_model: selectedOption.label,
     });
-    console.log(`Model selected:`, selectedOption);
   };
   const handleStateChange = (selectedOption) => {
     setSelectedStateId(selectedOption.value);
@@ -139,7 +138,6 @@ export const Edit_form = () => {
       ...formData,
       city: selectedOption.label,
     });
-    console.log(`City selected:`, selectedOption);
   };
   const handleTransmissionChange = (selectedOption) => {
     setSelectedTransmission(selectedOption.value);
@@ -147,7 +145,6 @@ export const Edit_form = () => {
       ...formData,
       transmission: selectedOption.label,
     });
-    console.log(`Transmission selected:`, selectedOption);
   };
   const handleAssemblyChange = (selectedOption) => {
     setSelectedAssembly(selectedOption.value);
@@ -155,7 +152,6 @@ export const Edit_form = () => {
       ...formData,
       assembly: selectedOption.label,
     });
-    console.log(`Assembly selected:`, selectedOption);
   };
   const handleConditionChange = (selectedOption) => {
     setSelectedCondition(selectedOption.value);
@@ -163,7 +159,6 @@ export const Edit_form = () => {
       ...formData,
       condition: selectedOption.label,
     });
-    console.log(`Condition selected:`, selectedOption);
   };
   const handleEngineTypeChange = (selectedOption) => {
     setSelectedEngine_types(selectedOption.value);
@@ -171,7 +166,6 @@ export const Edit_form = () => {
       ...formData,
       engine_type: selectedOption.label,
     });
-    console.log(`Engine selected:`, selectedOption);
   };
   const handleYearChange = (selectedOption) => {
     setSelectedYear(selectedOption.value);
@@ -308,7 +302,6 @@ export const Edit_form = () => {
         setEngineTypes(data.engineTypes);
         setFeatures(data.features);
         setMake(data.makes);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -406,7 +399,6 @@ export const Edit_form = () => {
     fetchData(); // Call the fetchData function when the component mounts
   }, []);
   const { slug, serial_no } = useParams();
-  console.log(serial_no, slug);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -514,7 +506,6 @@ export const Edit_form = () => {
     //   imageFiles.forEach((image, index) => {
     //     formdata.append(`images[${index}]`, image, `image${index}.jpg`); // Add a filename
     //   });
-    console.log("Form Data:", formdata);
     const requestOptions = {
       method: "PUT",
       headers: myHeaders,
@@ -545,7 +536,6 @@ export const Edit_form = () => {
         } else {
           setErrors({});
           const result = await response.json();
-          console.log(result);
           setSubmitted(true);
           setLoading(false);
           navigate(`/carDetail/${result.data.postAd.slug}`);

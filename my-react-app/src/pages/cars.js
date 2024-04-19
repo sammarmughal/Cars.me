@@ -15,18 +15,16 @@ import fireSvgrepo from "../images/HomepageAssets/fire-svgrepo-com.png";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { LoginPopup } from "../component/nav";
-import {
-  IoIosArrowBack,
-  IoIosArrowForward,
-} from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Register from "../component/register";
 import ReactPaginate from "react-paginate";
 import { useSelector } from "react-redux";
 
 const Cars = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const params = new URLSearchParams(window.location.search);
   const [priceFrom, setPriceFrom] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get("price_from") || "";
@@ -36,28 +34,42 @@ const Cars = () => {
     const params = new URLSearchParams(window.location.search);
     return params.get("price_to") || "";
   });
-  const [mileageFrom, setMileageFrom] = useState(
-    sessionStorage.getItem("mileageFrom") || ""
-  );
-  const [mileageTo, setMileageTo] = useState(
-    sessionStorage.getItem("mileageTo") || ""
-  );
-  const [yearFrom, setYearFrom] = useState(
-    sessionStorage.getItem("yearFrom") || ""
-  );
-  const [yearTo, setYearTo] = useState(sessionStorage.getItem("yearTo") || "");
+  const [mileageFrom, setMileageFrom] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("mileage_from") || "";
+  });
+  const [mileageTo, setMileageTo] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("mileage_to") || "";
+  });
+  const [yearFrom, setYearFrom] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("year_from") || "";
+  });
+  const [yearTo, setYearTo] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("year_to") || "";
+  });
   const [transmissions, setTransmissions] = useState({});
-  const [selectedTransmission, setSelectedTransmission] = useState([]);
+  const [selectedTransmission, setSelectedTransmission] = useState("");
+  // useState(() => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   return params.get("transmissions") || "";
+  // });
   const [assembly, setAssembly] = useState({});
   const [selectedAssembly, setSelectedAssembly] = useState("");
   const [engineTypes, setEngineTypes] = useState({});
   const [selectedEngine_type, setSelectedEngine_types] = useState("");
   const [make, setMake] = useState([]);
   const [selectedMakeId, setSelectedMakeId] = useState("");
-  const [state, setState] = useState([]);
+  const [state, setState] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("states") || "";
+  });
+
   const [selectedStateId, setSelectedStateId] = useState(
     JSON.parse(sessionStorage.getItem("selectedStateId")) || []
-  );  
+  );
   const [city, setCity] = useState([]);
   const [selectedCityId, setSelectedCityId] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -96,7 +108,16 @@ const Cars = () => {
   const handleToggleCountry = () => {
     setIsDropdownCountryOpen((prevState) => !prevState);
   };
-
+  useEffect(() => {
+    setPriceFrom(params.get("price_from") || "");
+    setPriceTo(params.get("price_to") || "");
+    // setTransmissions(params.get("transmissions") || "");
+    setState(params.get("states") || "");
+    setMileageFrom(params.get("mileage_from" || ""));
+    setMileageTo(params.get("mileage_to" || ""));
+    setYearFrom(params.get("year_from" || ""));
+    setYearTo(params.get("year_to" || ""));
+  }, [params]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchObject, setSearchObject] = useState({
     makes: searchParams.get("makes"),
@@ -110,10 +131,12 @@ const Cars = () => {
     engineTypes: searchParams.get("engineTypes"),
   });
 
-  let initialSelectedState = localStorage.getItem("selectedState");
-  initialSelectedState = initialSelectedState ? JSON.parse(initialSelectedState) : [];
-  
-  const [selectedState, setSelectedState] = useState(initialSelectedState);
+  // let initialSelectedState = localStorage.getItem("selectedState");
+  // initialSelectedState = initialSelectedState
+  //   ? JSON.parse(initialSelectedState)
+  //   : [];
+
+  const [selectedState, setSelectedState] = useState([]);
   useEffect(() => {
     const storedState = localStorage.getItem("isHeartFilled");
     if (storedState !== null) {
@@ -158,51 +181,64 @@ const Cars = () => {
       color: "rgb(30 64 175)",
     }),
   };
-
   const handlePriceFromChange = (event) => {
     setPriceFrom(event.target.value);
-    sessionStorage.setItem("priceFrom", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("price_from", event.target.value);
+    window.history.pushState({}, "", "?" + queryParams.toString());
+    
   };
 
   const handlePriceToChange = (event) => {
     setPriceTo(event.target.value);
-    sessionStorage.setItem("priceTo", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("price_to", event.target.value);
+    window.history.pushState({}, '', "?" + queryParams.toString());
+  
   };
 
   const handleMileageFromChange = (event) => {
     setMileageFrom(event.target.value);
-    sessionStorage.setItem("mileageFrom", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("mileage_from", event.target.value);
+    window.history.pushState({}, "", "?" + queryParams.toString());
   };
 
   const handleMileageToChange = (event) => {
     setMileageTo(event.target.value);
-    sessionStorage.setItem("mileageTo", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("mileage_to", event.target.value);
+    window.history.pushState({}, "", "?" + queryParams.toString());
   };
 
   const handleYearFromChange = (event) => {
     setYearFrom(event.target.value);
-    sessionStorage.setItem("yearFrom", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("year_from", event.target.value);
+    window.history.pushState({}, "", "?" + queryParams.toString());
   };
 
   const handleYearToChange = (event) => {
     setYearTo(event.target.value);
-    sessionStorage.setItem("yearTo", event.target.value);
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("year_to", event.target.value);
+    window.history.pushState({}, "", "?" + queryParams.toString());
   };
   const handleMakeChange = (selectedOption) => {
     setSelectedMakeId(selectedOption.value);
-    sessionStorage.setItem("selectedMakeId", selectedOption.value);
+    // sessionStorage.setItem("selectedMakeId", selectedOption.value);
   };
- 
+
   const handleCityChange = (selectedOptions) => {
     selectedOptions = Array.isArray(selectedOptions)
       ? selectedOptions
       : [selectedOptions];
     const selectedCityValues = selectedOptions.map((option) => option.value);
     setSelectedCityId(selectedCityValues);
-    sessionStorage.setItem(
-      "selectedCityId",
-      JSON.stringify(selectedCityValues)
-    );
+    // sessionStorage.setItem(
+    //   "selectedCityId",
+    //   JSON.stringify(selectedCityValues)
+    // );
     const selectedCityNames = selectedOptions.map((option) => option.label);
     setSearchTerm(selectedCityNames.join(" "));
   };
@@ -223,7 +259,6 @@ const Cars = () => {
       return newSelectedTransmission;
     });
   };
-
   const handleAssemblyChange = (selectedOption) => {
     setSelectedAssembly((prevState) => {
       let newSelectedAssembly;
@@ -259,8 +294,17 @@ const Cars = () => {
       return newSelectedEnginetypes;
     });
   };
-  const [stateOptions , setStateOptions]  = useState([]);
-  
+  // const updateUrlParams = (paramsToUpdate) => {
+  //   const queryParams = new URLSearchParams(window.location.search);
+  //   Object.entries(paramsToUpdate).forEach(([key, value]) => {
+  //     if (value) {
+  //       queryParams.set(key, value);
+  //     } else {
+  //       queryParams.delete(key);
+  //     }
+  //   });
+  // };
+  const [stateOptions, setStateOptions] = useState([]);
   useEffect(() => {
     let options;
     if (Array.isArray(state)) {
@@ -270,22 +314,35 @@ const Cars = () => {
       }));
       setStateOptions(options);
     }
-  
+
     if (Array.isArray(options) && Array.isArray(searchObject.states)) {
-      const newSelect = options.filter((st) => searchObject.states.includes(st.value));
-      console.log(newSelect)
-      setSelectedState(newSelect);
-      localStorage.setItem("selectedState", JSON.stringify(newSelect));
+      const newSelect = options.filter((st) =>
+        searchObject.states.includes(st.value)
+      );
+      // setSelectedState(newSelect);
+      // localStorage.setItem("selectedState", JSON.stringify(newSelect));
     }
-  }, [state, searchObject]);
+  }, [state]);
+
   const handleStateChange = (selectedOption) => {
-    if (Array.isArray(selectedOption)) {
+    console.log(selectedOption)
+     if(selectedOption.length > 0 ){
       setSelectedState(selectedOption);
-      setSearchObject(prevState => ({
+      setSearchObject((prevState) => ({
         ...prevState,
-        states: selectedOption.map(option => option.value),
-      }));    
-      localStorage.setItem("selectedState", JSON.stringify(selectedOption));
+        states: selectedOption.map((option) => option.value),
+      }));
+      const searchParams = new URLSearchParams(location.search);
+      searchParams.delete('states');
+      selectedOption.forEach((element)=>{
+        console.log(element.value)
+        console.log(searchParams)
+        searchParams.append('states', element.value);
+        const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+      })
+    }else{
+      setSelectedState([]);
     }
   };
   const cityOptions = city
@@ -306,7 +363,7 @@ const Cars = () => {
     value: makes.id,
     label: makes.name,
   }));
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -341,18 +398,18 @@ const Cars = () => {
 
     fetchData();
   }, []);
-  useEffect(() => {
-    const loadSavedFilters = () => {
-      const savedFilters = JSON.parse(sessionStorage.getItem("filters")) || {};
-      setSelectedMakeId(savedFilters.selectedMakeId || "");
-      setSelectedStateId(savedFilters.selectedStateId || "");
-      setSelectedTransmission(savedFilters.selectedTransmission || "");
-      setPriceFrom(savedFilters.priceFrom || "");
-      setPriceTo(savedFilters.priceTo || "");
-      // Repeat for other filters
-    };
-    loadSavedFilters(); // Load saved filters when the component mounts
-  }, []);
+  // useEffect(() => {
+  //   const loadSavedFilters = () => {
+  //     const savedFilters = JSON.parse(sessionStorage.getItem("filters")) || {};
+  //     setSelectedMakeId(savedFilters.selectedMakeId || "");
+  //     setSelectedStateId(savedFilters.selectedStateId || "");
+  //     setSelectedTransmission(savedFilters.selectedTransmission || "");
+  //     setPriceFrom(savedFilters.priceFrom || "");
+  //     setPriceTo(savedFilters.priceTo || "");
+  //     // Repeat for other filters
+  //   };
+  //   loadSavedFilters(); // Load saved filters when the component mounts
+  // }, []);
 
   useEffect(() => {
     const fetchData = async (signal) => {
@@ -604,6 +661,7 @@ const Cars = () => {
                     options={stateOptions} // Assuming this is your options list
                     styles={customStyles} // Assuming customStyles is defined somewhere
                     isSearchable
+                    // value={state}
                     isMulti
                     // value={stateOptions.filter(option => selectedStateId.includes(option.value))}
                     value= {selectedState}
@@ -805,6 +863,7 @@ const Cars = () => {
                     <input
                       placeholder="From"
                       styles={customStyles}
+                      value={yearFrom}
                       onChange={handleYearFromChange}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
@@ -813,6 +872,7 @@ const Cars = () => {
                     <input
                       placeholder="To"
                       styles={customStyles}
+                      value={yearTo}
                       onChange={handleYearToChange}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
@@ -843,6 +903,7 @@ const Cars = () => {
                       placeholder="From"
                       onChange={handlePriceFromChange}
                       styles={customStyles}
+                      value={priceFrom}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
                   </div>
@@ -851,6 +912,7 @@ const Cars = () => {
                       onChange={handlePriceToChange}
                       placeholder="To"
                       styles={customStyles}
+                      value={priceTo}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
                   </div>
@@ -880,6 +942,7 @@ const Cars = () => {
                       placeholder="From"
                       onChange={handleMileageFromChange}
                       styles={customStyles}
+                      value={mileageFrom}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
                   </div>
@@ -888,14 +951,14 @@ const Cars = () => {
                       onChange={handleMileageToChange}
                       placeholder="To"
                       styles={customStyles}
+                      value={mileageTo}
                       className="w-full focus:outline-none px-2 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              className="bg-white sm:w-auto w-full border-b border-sky-200 z-20">
+            <div className="bg-white sm:w-auto w-full border-b border-sky-200 z-20">
               <div className="p-4 flex sm:w-auto w-full items-center justify-between">
                 <p className="font-semibold text-sm">Variant</p>
                 <IoIosArrowDown
@@ -911,7 +974,6 @@ const Cars = () => {
                 <Select styles={customStyles} isSearchable />
               </div>
             )}
-           
           </div>
         </div>
         <div className="w-full lg:ml-3">
@@ -1153,8 +1215,9 @@ const Cars = () => {
                       styles={customStyles} // Assuming customStyles is defined somewhere
                       isSearchable
                       isMulti
-                      value={stateOptions.filter(option => selectedStateId.includes(option.value))}
-
+                      value={stateOptions.filter((option) =>
+                        selectedStateId.includes(option.value)
+                      )}
                     />
                   </div>
                 )}

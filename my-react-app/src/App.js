@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./styles/App.css";
 import Home from "./pages/home";
@@ -17,13 +17,13 @@ import BrandInternal from "./pages/brandInternal";
 import MyProfile from "./pages/my-profile";
 import MyDashboard from "./pages/my-dashboard";
 import ChangePassword from "./pages/changePassword";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Edit_form } from "./component/editForm";
 import store from "./pages/store/store";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { slug , serial_no } = useParams();
+  // const { slug , serial_no } = useParams();
 
   return (
     <>

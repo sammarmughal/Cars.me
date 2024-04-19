@@ -90,7 +90,6 @@ function SellYourCar() {
   };
   const handleMake_ModelChange = selectedOption => {
     setSelectedModelId(selectedOption.value);
-    console.log(`Model selected:`, selectedOption);
   };
   const handleStateChange = selectedOption => {
     setSelectedStateId(selectedOption.value);
@@ -98,23 +97,18 @@ function SellYourCar() {
   };
   const handleCityChange = selectedOption => {
     setSelectedCity(selectedOption.value);
-    console.log(`City selected:`, selectedOption);
   };
   const handleTransmissionChange = selectedOption => {
     setSelectedTransmission(selectedOption.value);
-    console.log(`Transmission selected:`, selectedOption);
   };
   const handleAssemblyChange = selectedOption => {
     setSelectedAssembly(selectedOption.value)
-    console.log(`Assembly selected:`, selectedOption);
   };
   const handleConditionChange = selectedOption => {
     setSelectedCondition(selectedOption.value);
-    console.log(`Condition selected:`, selectedOption);
   };
   const handleEngineTypeChange = selectedOption => {
     setSelectedEngine_types(selectedOption.value);
-    console.log(`Engine selected:`, selectedOption);
   };
   const handleYearChange = selectedOption => {
     setSelectedYear(selectedOption.value);
@@ -200,7 +194,6 @@ function SellYourCar() {
         setEngineTypes(data.engineTypes);
         setFeatures(data.features);
         setMake(data.makes);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -311,7 +304,6 @@ function SellYourCar() {
       imageFiles.forEach((image, index) => {
         formdata.append(`images[${index}]`, image, `image${index}.jpg`); // Add a filename
       });
-      console.log("Form Data:", formdata);
       const requestOptions = {
         method: "POST",
         headers: myHeaders,
@@ -339,7 +331,6 @@ function SellYourCar() {
             }
           } else {
             const result = await response.json();
-            console.log(result);
             setSubmitted(true);
             setLoading(false);
             navigate(`/carDetail/${result.data.postAd.slug}`); 
@@ -348,11 +339,9 @@ function SellYourCar() {
           }
         })
         .then((result) => {
-          console.log(result);
           setLoading(false);
         })
         .catch((error) => {
-          console.error(error);
           setErrors({ api: error.message });
           setLoading(false);
 

@@ -17,7 +17,6 @@ function ChangePassword() {
     });
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
-    console.log(message);
 
     useEffect(() => {
         console.log(errors);
@@ -79,7 +78,6 @@ function ChangePassword() {
                 setMessage(result.message);
                 setPassword("");
                 setSubmitted(true);
-                console.log(message);
                 setPassword_confirmation("");
                 setLoading(false);
             }
@@ -91,7 +89,6 @@ function ChangePassword() {
                 error.response.errors
             ) {
                 const serverErrors = error.response.errors;
-                console.log("Server Errors:", serverErrors);
                 setErrors(serverErrors);
             }
         }
