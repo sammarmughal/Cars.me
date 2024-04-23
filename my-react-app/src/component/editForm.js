@@ -38,12 +38,12 @@ export const Edit_form = () => {
   const [features, setFeatures] = useState([]);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [make, setMake] = useState([]);
+  const [selectedMakeId, setSelectedMakeId] = useState("");
   const [state, setState] = useState([]);
   const [selectedStateId, setSelectedStateId] = useState("");
   // const [stateOptions, setStateOptions] = useState([]);
   const [city, setCity] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
-  const [selectedMakeId, setSelectedMakeId] = useState("");
   const [make_model, setMake_model] = useState([]);
   const [selectedModelId, setSelectedModelId] = useState("");
   //   const [images, setImages] = useState([]);
@@ -116,6 +116,7 @@ export const Edit_form = () => {
       make: selectedOption.label,
     });
     setMake_model(null);
+    // setSelectedModelId("");
   };
   const handleMake_ModelChange = (selectedOption) => {
     setSelectedModelId(selectedOption.value);
@@ -128,7 +129,7 @@ export const Edit_form = () => {
     setSelectedStateId(selectedOption.value);
     setFormData({
       ...formData,
-      state: selectedOption.value,
+      state: selectedOption.label,
     });
     setCity(null);
   };
@@ -180,6 +181,13 @@ export const Edit_form = () => {
   const handleVariantChange = (event) => {
     setVariant(event.target.value);
   };
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+    setFormData({
+          ...formData,
+          price: parseFloat(event.target.value.replace(/,/g, "")) || "",
+        });
+  };
   const handleMileagechange = (event) => {
     setMileage(event.target.value);
   };
@@ -207,8 +215,8 @@ export const Edit_form = () => {
   let stateOptions = [];
   if (state) {
     stateOptions = state.map((states) => ({
-      value: states.name,
-      label: states.id,
+      value: states.id,
+      label: states.name,
     }));
   }
   let conditionsOptions = [];
@@ -437,11 +445,14 @@ export const Edit_form = () => {
         // Extract the description from the result and set it in state
         setSelectedFeatures(result.data.postAds.features || []);
         setArea(result.data.postAds.area || "");
+        setPrice(result.data.postAds.price || "");
+        setSelectedMakeId(result.data.postAds.make || "")
         setVariant(result.data.postAds.variant || "");
         setMileage( result.data.postAds.mileage || "");
         setExterior_color(result.data.postAds.exterior_color || "");
         setEngine_capacity(result.data.postAds.engine_capacity || "")
         setDescription(result.data.postAds.description || "")
+        setSelectedMakeId(result.data.postAds.make);
         setFormData(prevFormData => ({
           ...prevFormData,
           description: result.data.postAds.description || "",
@@ -471,8 +482,6 @@ export const Edit_form = () => {
     fetchData();
   }, [slug]);
 
-  const location = useLocation();
-  //   const ad = location.state.ad;
   async function handleEditPostAd(event) {
       event.preventDefault();
     setLoading(true);
@@ -502,12 +511,14 @@ export const Edit_form = () => {
       formdata.append(`features[${index}]`, feature);
     });
     formdata.append("description", description);
+    formdata.append("_method", "PUT");
+    console.log({formdata});
     // formdata.append("thumbnail", fileInput.current.files[0]);
     //   imageFiles.forEach((image, index) => {
     //     formdata.append(`images[${index}]`, image, `image${index}.jpg`); // Add a filename
     //   });
     const requestOptions = {
-      method: "PUT",
+      method: "POST",
       headers: myHeaders,
       body: formdata,
       redirect: "follow",
@@ -719,12 +730,13 @@ export const Edit_form = () => {
                 onFocus={() => console.log("Element received focus")}
                 styles={customStyles}
                 value={formData.price}
-                onChange={(e) => {
-                  setFormData({
-                    ...formData,
-                    price: parseFloat(e.target.value.replace(/,/g, "")) || "",
-                  });
-                }}
+                onChange={handlePriceChange}
+                // onChange={(e) => {
+                //   setFormData({
+                //     ...formData,
+                //     price: parseFloat(e.target.value.replace(/,/g, "")) || "",
+                //   });
+                // }}
                 className="w-full focus:outline-none px-4 py-1.5  placeholder:text-[hsl(0, 0%, 50%)]"
               />
             </div>

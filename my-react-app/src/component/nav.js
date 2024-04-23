@@ -30,7 +30,7 @@ export const LoginPopup = ({ open, onClickLogin, onClickSignup, }) => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(errors);
+    // console.log(errors);
   }, [errors, message]);
   async function loginUser(e) {
     e.preventDefault();
@@ -280,7 +280,7 @@ export const SignupPopup = ({ open, onClickSignup, onClickLogin }) => {
     // Logic to resend OTP
   };
   useEffect(() => {
-    console.log(errors);
+    // console.log(errors);
   }, [errors, message]);
   async function saveUser(e) {
     e.preventDefault();

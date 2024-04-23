@@ -4,7 +4,8 @@ import "./styles/App.css";
 import Home from "./pages/home";
 import CarsDetail from "./pages/carsDetailPage";
 import Cars from "./pages/cars";
-import { Provider } from 'react-redux';
+import DevCars from "./pages/DevCars";
+// import { Provider } from 'react-redux';
 import SellYourCar from "./pages/sellYourCar";
 import NewCars from "./pages/newCars";
 import ClassicCars from "./pages/classicCars";
@@ -19,7 +20,7 @@ import MyDashboard from "./pages/my-dashboard";
 import ChangePassword from "./pages/changePassword";
 // import { useParams } from "react-router-dom";
 import { Edit_form } from "./component/editForm";
-import store from "./pages/store/store";
+// import store from "./pages/store/store";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,12 +28,12 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/carDetail/:slug" element={<CarsDetail />} />
             <Route exact path="/usedcars" element={<Cars />} />
+            <Route exact path="/devusedcars" element={<DevCars />} />
             <Route exact path="/NewCars" element={<NewCars />} />
             <Route exact path="/UsedCars" element={<UsedCars />} />
             <Route exact path="/ClassicCars" element={<ClassicCars />} />
@@ -61,7 +62,6 @@ function App() {
 
           </Routes>
         </BrowserRouter>
-      </Provider>
     </>
   );
 }
