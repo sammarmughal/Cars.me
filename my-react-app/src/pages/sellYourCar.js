@@ -130,26 +130,7 @@ function SellYourCar() {
   const makeOptions = make.map(makes => ({ value: makes.id, label: makes.name }));
   const modelOptions = make_model ? make_model.map(model => ({ value: model.id, label: model.name })) : [];
   const fileInput = useRef();
-  const customStyles = {
-    control: (provided, state) => ({
-      ...provided,
-      padding: '4px',
-      borderRadius: '0.375rem',
-      backgroundColor: state.isSelected ? 'rgb(186 230 253)' : 'white',
-      borderWidth: '1px',
-      borderColor: state.isSelected ? 'rgb(186 230 253)' : '',
-      color: 'black',
-      '&:hover': {
-        borderColor: 'rgb(186 230 253)',
-        color: 'black'
-      }
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.isSelected ? 'rgb(186 230 253)' : state.isFocused ? 'rgb(186 230 253)' : null,
-      color: 'rgb(30 64 175)'
-    })
-  }
+
 
   const handleUpload = event => {
     if (event.target.files.length >= 10) {
@@ -270,8 +251,7 @@ function SellYourCar() {
       }
     }
   }, [errors, refs, hasScrolled]);
-   
-    const handlePostAd = async (e) => {
+  const handlePostAd = async (e) => {
       e.preventDefault();
       setLoading(true);
       setErrors({});
@@ -346,7 +326,7 @@ function SellYourCar() {
           setLoading(false);
 
         });
-    };
+  };
   return (
     <>
       <Nav />

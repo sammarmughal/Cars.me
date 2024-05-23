@@ -118,6 +118,7 @@ export const Edit_form = () => {
     setMake_model(null);
     // setSelectedModelId("");
   };
+  console.log({selectedMakeId});
   const handleMake_ModelChange = (selectedOption) => {
     setSelectedModelId(selectedOption.value);
     setFormData({
@@ -144,7 +145,7 @@ export const Edit_form = () => {
     setSelectedTransmission(selectedOption.value);
     setFormData({
       ...formData,
-      transmission: selectedOption.label,
+      transmission: selectedOption.value,
     });
   };
   const handleAssemblyChange = (selectedOption) => {
@@ -190,7 +191,13 @@ export const Edit_form = () => {
   };
   const handleMileagechange = (event) => {
     setMileage(event.target.value);
+    setFormData({
+      ...formData,
+      mileage: parseFloat(event.target.value.replace(/,/g, "")) || "",
+    });
   };
+  console.log({mileage});
+
   const handleExterior_colorChange = (event) => {
     setExterior_color(event.target.value);
   };
@@ -376,27 +383,27 @@ export const Edit_form = () => {
   };
   useEffect(() => {
     if (!hasScrolled) {
-      let scrollToError = false; // Track if scrolling to error is needed
+      let scrollToError = false; 
       for (let field in errors) {
         if (errors[field]) {
           const errorField = refs[field]?.current;
           if (errorField) {
             errorField.scrollIntoView({ behavior: "smooth", block: "center" });
-            scrollToError = true; // Set flag to indicate scrolling is needed
-            break; // Stop after scrolling to the first error field
+            scrollToError = true; 
+            break;
           }
         }
       }
       if (scrollToError) {
-        setHasScrolled(true); // Set flag to true only after scrolling is done
+        setHasScrolled(true); 
       }
     }
   }, [errors, refs, hasScrolled]);
-  useEffect(() => {
+  useEffect((event) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        await handleEditPostAd();
+        await handleEditPostAd(event);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching ads:", error);
@@ -404,7 +411,7 @@ export const Edit_form = () => {
       }
     };
 
-    fetchData(); // Call the fetchData function when the component mounts
+    fetchData(); 
   }, []);
   const { slug, serial_no } = useParams();
   useEffect(() => {
@@ -442,7 +449,6 @@ export const Edit_form = () => {
           year: null,
           // Add any other error fields if needed
         });
-        // Extract the description from the result and set it in state
         setSelectedFeatures(result.data.postAds.features || []);
         setArea(result.data.postAds.area || "");
         setPrice(result.data.postAds.price || "");
@@ -452,9 +458,9 @@ export const Edit_form = () => {
         setExterior_color(result.data.postAds.exterior_color || "");
         setEngine_capacity(result.data.postAds.engine_capacity || "")
         setDescription(result.data.postAds.description || "")
-        setSelectedMakeId(result.data.postAds.make);
-        setFormData(prevFormData => ({
-          ...prevFormData,
+        setSelectedMakeId(result.data.postAds.make || "");
+        setSelectedEngine_types(result.data.postAds.engine_type || "");
+        setFormData({
           description: result.data.postAds.description || "",
           transmission: result.data.postAds.transmission || "",
           state: result.data.postAds.state || "",
@@ -469,11 +475,11 @@ export const Edit_form = () => {
           assembly: result.data.postAds.assembly || "",
           variant: result.data.postAds.variant || "",
           price: parseFloat(result.data.postAds.price.replace(/,/g, "")) || 0,
-          mileage: result.data.postAds.mileage || "",
+          mileage: (result.data.postAds.mileage.replace(/,/g, "")) || "",
           exterior_color: result.data.postAds.exterior_color || "",
           engine_capacity: result.data.postAds.engine_capacity || "",
           year: result.data.postAds.year || "",
-        }));
+        });
       } catch (error) {
         console.error(error);
       }
@@ -555,10 +561,10 @@ export const Edit_form = () => {
           return result;
         }
       })
-      // .then((result) => {
-      //   console.log(result);
-      //   setLoading(false);
-      // })
+      .then((result) => {
+        console.log(result);
+        setLoading(false);
+      })
       .catch((error) => {
         console.error(error);
         setErrors({ api: error.message });
@@ -692,7 +698,7 @@ export const Edit_form = () => {
                 placeholder="Type"
                 onFocus={() => console.log("Element received focus")}
                 styles={customStyles}
-                value={mileage}
+                value={formData.mileage}
                 onChange={handleMileagechange}
                 className="w-full focus:outline-none px-4 py-1.5"
               />
@@ -801,10 +807,7 @@ export const Edit_form = () => {
               options={engineTypeOptions}
               styles={customStyles}
               isSearchable={false}
-              value={{
-                value: formData.engine_type,
-                label: formData.engine_type,
-              }}
+              value={{ value: formData.engine_type, label: formData.engine_type }}
             />
             {errors.engine_type && (
               <span className="error text-red-500">{errors.engine_type}</span>

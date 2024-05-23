@@ -45,24 +45,18 @@ function ChangePassword() {
 
             if (!response.ok) {
                 if (response.status === 422) {
-                    // Form field validation error
                     const result = await response.json();
                     setErrors(result.errors);
                 } else if (response.status === 401) {
                     setShowLoginPopup(true);
-                    // Unauthorized user
                     throw new Error("Unauthorized user");
                 } else if (response.status === 500) {
-                    // Server code error
                     throw new Error("Server code error");
                 } else if (response.status === 404) {
-                    // Not found
                     throw new Error("Not found");
                 } else if (response.status === 403) {
-                    // Forbidden
                     throw new Error("Forbidden");
                 } else {
-                    // Other errors
                     throw new Error('Network response was not ok');
                 }
             }

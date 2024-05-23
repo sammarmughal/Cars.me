@@ -113,7 +113,6 @@ const CarsDetail = () => {
                   ))}
                 </div>
                 <div className="flex flex-col gap-4 ">
-                  {/* You can render additional images here */}
                 </div>
               </div>
               <div className="lg:flex hidden flex-col gap-5">
